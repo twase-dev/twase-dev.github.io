@@ -377,14 +377,17 @@ section{scroll-margin-top:var(--nav-h)}
   display:inline-flex;align-items:center;gap:8px
 }
 .p-meta{display:block;padding-top:16px}
-.p-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
-.p-name{font-family:var(--display);font-size:1.28rem;font-weight:700;line-height:1.2}
-.p-tag{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);white-space:nowrap}
+/* card anatomy follows the 2026 reference build: discipline eyebrow, then name */
+.p-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.p-sub{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7A756B}
+.p-arrow{flex:none;color:#B4ADA2;transition:color var(--ease),transform var(--ease)}
+.p-card:hover .p-arrow,.p-card:focus-visible .p-arrow{color:var(--terra);transform:translate(2px,-2px)}
+.p-name{display:block;font-family:var(--display);font-size:1.28rem;font-weight:700;line-height:1.2;margin-top:7px}
 .p-desc{display:block;color:#666;font-size:.88rem;margin-top:6px}
 .p-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
 .p-tags span{
   font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#555;
-  border:1px solid var(--line);padding:5px 9px;background:#fff
+  background:var(--bg-warm);padding:6px 10px
 }
 .p-card--pending .p-thumb{
   display:grid;place-items:center;aspect-ratio:3/2;border:1px dashed #C9BFAF;background:
@@ -420,13 +423,19 @@ section{scroll-margin-top:var(--nav-h)}
 }
 .tile-btn:hover .tile-frame img,.tile-btn:focus-visible .tile-frame img{transform:scale(1.03)}
 
-/* ── stacked archive: two sheets behind the framed lead image ── */
+/* ── stacked archive: frameless lead image with two sheets behind it ──
+   Stacks carry no white matte, and the frame must not clip: the offset
+   sheets sit outside its box, so overflow stays visible. The zoom is
+   dropped on stacks in exchange — the sheets are the hover affordance. */
 .tile.stack{padding:0 12px 12px 0}
+.tile.stack .tile-frame{background:transparent;border:0;padding:0;overflow:visible}
 .tile.stack .tile-frame::before,
 .tile.stack .tile-frame::after{
-  content:'';position:absolute;inset:0;background:#fff;border:1px solid #E4E0DA;
+  content:'';position:absolute;inset:0;background:#fff;border:1px solid rgba(20,20,20,.16);
   transition:transform .45s cubic-bezier(.16,1,.3,1)
 }
+.tile.stack .tile-btn:hover .tile-frame img,
+.tile.stack .tile-btn:focus-visible .tile-frame img{transform:none}
 .tile.stack .tile-frame::before{transform:translate(6px,6px)}
 .tile.stack .tile-frame::after{transform:translate(12px,12px)}
 .tile.stack .tile-frame img,.tile.stack .tile-frame video{position:relative;z-index:1}
@@ -581,7 +590,6 @@ dialog.lb::backdrop{background:rgba(8,8,8,.86);-webkit-backdrop-filter:blur(6px)
 .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .testi-name{font-size:.86rem;font-weight:500;color:var(--ink)}
 .testi-role{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#8A8479;margin-top:2px}
-.drag-hint{margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A8479}
 
 /* ══════════════ CONTACT ══════════════ */
 .contact{background:var(--ink);color:#fff;padding:clamp(64px,9vw,116px) 0;position:relative;overflow:hidden;text-align:center}
@@ -891,9 +899,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">WorldWorkHub</span>
-              <span class="p-tag">Product</span>
+              <span class="p-sub">Product · Chrome Extension Landing Page</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">WorldWorkHub</span>
             <span class="p-desc">Landing page and interface for a job-discovery extension.</span>
             <span class="p-tags"><span>Landing Page</span><span>Product UI</span><span>Chrome Extension</span></span>
           </span>
@@ -913,9 +922,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">First Macedonian Global Ministry</span>
-              <span class="p-tag">Faith</span>
+              <span class="p-sub">Faith · Church Website · Lagos</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">First Macedonian Global Ministry</span>
             <span class="p-desc">Church website covering programmes, broadcast, the book and giving.</span>
             <span class="p-tags"><span>Church Website</span><span>Multi-page</span><span>Content Structure</span></span>
           </span>
@@ -935,9 +945,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">MercyWell Maritime</span>
-              <span class="p-tag">Maritime</span>
+              <span class="p-sub">Maritime · Corporate Website</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">MercyWell Maritime</span>
             <span class="p-desc">Corporate web presence and identity for a maritime logistics firm.</span>
             <span class="p-tags"><span>Corporate Website</span><span>Brand Identity</span></span>
           </span>
@@ -957,9 +968,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">Frank D Nero</span>
-              <span class="p-tag">Music</span>
+              <span class="p-sub">Music · Artist Website</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">Frank D Nero</span>
             <span class="p-desc">Artist website and brand management for an Afrobeat act.</span>
             <span class="p-tags"><span>Artist Website</span><span>Brand Management</span></span>
           </span>
@@ -979,9 +991,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">EQ Training Dashboard</span>
-              <span class="p-tag">EdTech</span>
+              <span class="p-sub">EdTech · Web Application</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">EQ Training Dashboard</span>
             <span class="p-desc">L&amp;D web app in React — dashboards that make progress obvious.</span>
             <span class="p-tags"><span>Web App</span><span>React</span><span>L&amp;D</span></span>
           </span>
@@ -1001,9 +1014,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">TV &amp; Broadcast Suite</span>
-              <span class="p-tag">Broadcast</span>
+              <span class="p-sub">Broadcast · Identity Systems · Six shows</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">TV &amp; Broadcast Suite</span>
             <span class="p-desc">Six show identities, from title cards to format decks.</span>
             <span class="p-tags"><span>Show Identity</span><span>Key Art</span><span>Format Decks</span></span>
           </span>
@@ -1023,9 +1037,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">Kalyaan</span>
-              <span class="p-tag">Identity</span>
+              <span class="p-sub">Brand · Identity System</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">Kalyaan</span>
             <span class="p-desc">Brand system with a documented colour architecture.</span>
             <span class="p-tags"><span>Brand System</span><span>Colour</span><span>Art Direction</span></span>
           </span>
@@ -1045,9 +1060,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">Paseal Joe</span>
-              <span class="p-tag">Packaging</span>
+              <span class="p-sub">Retail · Packaging Design &amp; Production</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">Paseal Joe</span>
             <span class="p-desc">Packaging design and production artwork for a retail range.</span>
             <span class="p-tags"><span>Packaging</span><span>Production Art</span><span>Print</span></span>
           </span>
@@ -1067,9 +1083,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">Toke Cosmetics</span>
-              <span class="p-tag">Experiential</span>
+              <span class="p-sub">Beauty · Experiential Retail</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">Toke Cosmetics</span>
             <span class="p-desc">Experiential stands from concept (2022) to refresh (2026).</span>
             <span class="p-tags"><span>Promo Stands</span><span>Retail</span><span>Production</span></span>
           </span>
@@ -1089,9 +1106,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">PurpleMoney &amp; BuyIT</span>
-              <span class="p-tag">Campaign</span>
+              <span class="p-sub">Fintech · Campaign &amp; Out-of-Home</span>
+              <svg class="p-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </span>
+            <span class="p-name">PurpleMoney &amp; BuyIT</span>
             <span class="p-desc">Social, out-of-home and motion for two consumer brands.</span>
             <span class="p-tags"><span>Social</span><span>Out-of-Home</span><span>Motion</span></span>
           </span>
@@ -1107,9 +1125,9 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
           <span class="p-meta">
             <span class="p-top">
-              <span class="p-name">GREiPR Group</span>
-              <span class="p-tag">In progress</span>
+              <span class="p-sub">Brand · Web · In progress</span>
             </span>
+            <span class="p-name">GREiPR Group</span>
             <span class="p-desc">Portfolio entries reserved — add project snapshots to publish this case study.</span>
             <span class="p-tags"><span>Brand</span><span>Web</span><span>To be supplied</span></span>
           </span>
@@ -1137,7 +1155,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
             interfaces, print and product design. Pieces from the same project are stacked — open one to browse the set.
           </p>
         </div>
-        <p class="label" id="galCount">41 pieces · 21 stacks · 2021—2026</p>
+        <p class="label" id="galCount">41 pieces · 8 stacks · 2021—2026</p>
       </div>
 
       <div class="filters" role="group" aria-label="Filter work by discipline">
@@ -1551,7 +1569,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
   <section class="quote-band">
     <div class="container">
       <blockquote class="reveal">
-        <p>“In the world of today, opportunities abound and yours is just a click away.”</p>
+        <p>“Opportunity doesn’t knock. It searches, it clicks — be found first.”</p>
         <cite>Toluwa O.</cite>
       </blockquote>
     </div>
@@ -1635,7 +1653,6 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </div>
         </article>
 
-      <p class="drag-hint">Scroll, drag or use the arrows — one note from each client.</p>
     </div>
   </section>
 
@@ -1940,14 +1957,18 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
   }
 
   function applyFilter(cat) {
-    var shown = 0, pieces = 0;
+    var shown = 0, pieces = 0, stacks = 0;
     tiles.forEach(function (t) {
       var match = (cat === 'all' || t.getAttribute('data-cat') === cat);
       t.hidden = !match;
-      if (match) { shown++; pieces += pieceCount(t); }
+      if (match) {
+        var n = pieceCount(t);
+        shown++; pieces += n;
+        if (n > 1) stacks++;
+      }
     });
     empty.setAttribute('data-show', shown === 0 ? 'true' : 'false');
-    setCount(pieces, shown);
+    setCount(pieces, stacks);
     chips.forEach(function (c) {
       c.setAttribute('aria-pressed', c.getAttribute('data-filter') === cat ? 'true' : 'false');
     });
