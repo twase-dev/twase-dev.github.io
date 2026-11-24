@@ -353,21 +353,21 @@ section{scroll-margin-top:var(--nav-h)}
 .head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
 .head p.lede{max-width:56ch;color:#555;margin-top:16px;font-size:.95rem}
 /* ══════════════ SELECTED WORK ══════════════ */
-.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:26px;margin-top:48px}
-.p-card{grid-column:span 4;text-align:left;display:block;width:100%}
-.p-card:nth-child(1){grid-column:span 7}
-.p-card:nth-child(2){grid-column:span 5}
-.p-card:nth-child(6),.p-card:nth-child(7){grid-column:span 6}
-.p-card:nth-child(11){grid-column:span 12}
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:42px 30px;margin-top:48px;align-items:start}
+.p-card{text-align:left;display:block;width:100%}
+/* staggered rhythm, as in the 2026 reference build */
+.p-card:nth-child(even){margin-top:48px}
 .p-thumb{
-  display:block;position:relative;overflow:hidden;background:#E9E4DB;
-  aspect-ratio:16/10;border:1px solid var(--line)
+  display:block;position:relative;overflow:hidden;background:#fff;
+  border:1px solid #E4E0DA;padding:10px
 }
-.p-card:nth-child(1) .p-thumb,.p-card:nth-child(2) .p-thumb{aspect-ratio:16/10}
-.p-thumb img{width:100%;height:100%;object-fit:cover;transition:transform var(--ease-md),filter var(--ease)}
+.p-thumb img{
+  width:100%;height:auto;display:block;aspect-ratio:3/2;object-fit:cover;
+  transition:transform var(--ease-md),filter var(--ease)
+}
 .p-card:hover .p-thumb img,.p-card:focus-visible .p-thumb img{transform:scale(1.035)}
 .p-veil{
-  position:absolute;inset:0;display:flex;align-items:flex-end;padding:20px;
+  position:absolute;inset:10px;display:flex;align-items:flex-end;padding:20px;
   background:linear-gradient(to top,rgba(13,13,13,.78),rgba(13,13,13,.12) 55%,transparent);
   opacity:0;transition:opacity var(--ease)
 }
@@ -387,7 +387,7 @@ section{scroll-margin-top:var(--nav-h)}
   border:1px solid var(--line);padding:5px 9px;background:#fff
 }
 .p-card--pending .p-thumb{
-  display:grid;place-items:center;border:1px dashed #C9BFAF;background:
+  display:grid;place-items:center;aspect-ratio:3/2;border:1px dashed #C9BFAF;background:
     repeating-linear-gradient(135deg,#F6F1E8 0 12px,#F1EADF 12px 24px)
 }
 .pending-note{text-align:center;color:#8A7F6E;font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.9}
@@ -406,17 +406,40 @@ section{scroll-margin-top:var(--nav-h)}
 .chip span{margin-left:7px;font-size:9px;opacity:.5;letter-spacing:.04em}
 .chip[aria-pressed="true"] span{opacity:.75}
 .gallery-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));
+  gap:34px 24px;margin-top:30px;align-items:start
 }
 .tile{grid-column:span 1}
 .tile-btn{display:block;width:100%;text-align:left}
 .tile-frame{
-  position:relative;display:block;overflow:hidden;background:#EFEAE2;
-  border:1px solid var(--line);aspect-ratio:4/3;
-  display:grid;place-items:center;padding:10px
+  position:relative;display:grid;place-items:center;overflow:hidden;background:#fff;
+  border:1px solid #E4E0DA;aspect-ratio:3/2;padding:10px
 }
-.tile-frame img{width:100%;height:100%;object-fit:contain;transition:transform var(--ease-md)}
+.tile-frame img,.tile-frame video{
+  width:100%;height:100%;object-fit:cover;transition:transform var(--ease-md)
+}
 .tile-btn:hover .tile-frame img,.tile-btn:focus-visible .tile-frame img{transform:scale(1.03)}
+
+/* ── stacked archive: two sheets behind the framed lead image ── */
+.tile.stack{padding:0 12px 12px 0}
+.tile.stack .tile-frame::before,
+.tile.stack .tile-frame::after{
+  content:'';position:absolute;inset:0;background:#fff;border:1px solid #E4E0DA;
+  transition:transform .45s cubic-bezier(.16,1,.3,1)
+}
+.tile.stack .tile-frame::before{transform:translate(6px,6px)}
+.tile.stack .tile-frame::after{transform:translate(12px,12px)}
+.tile.stack .tile-frame img,.tile.stack .tile-frame video{position:relative;z-index:1}
+.tile.stack .tile-frame .expand{z-index:2}
+.tile-btn:hover .tile-frame::before,.tile-btn:focus-visible .tile-frame::before{transform:translate(9px,9px)}
+.tile-btn:hover .tile-frame::after,.tile-btn:focus-visible .tile-frame::after{transform:translate(17px,17px)}
+.stack-count{
+  position:absolute;right:8px;bottom:8px;z-index:2;height:22px;min-width:30px;padding:0 6px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(13,13,13,.86);color:#fff;font-size:10px;letter-spacing:.06em
+}
+.stack-count::after{content:' pcs';font-size:8px;opacity:.55;letter-spacing:.08em}
+.stack-items{display:none}
 .tile-frame .expand{
   position:absolute;top:8px;right:8px;width:24px;height:24px;
   display:grid;place-items:center;background:rgba(13,13,13,.72);color:#fff;
@@ -426,8 +449,6 @@ section{scroll-margin-top:var(--nav-h)}
 .tile-cap{display:block;padding:10px 2px 0}
 .tile-name{display:block;font-family:var(--display);font-size:.86rem;font-weight:600;line-height:1.3}
 .tile-sub{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8A8479;margin-top:3px}
-.tile--wide{grid-column:span 2}
-.tile--wide .tile-frame{aspect-ratio:16/7}
 .tile[hidden]{display:none}
 .gallery-empty{display:none;padding:40px 0;color:#6B6B6B}
 .gallery-empty[data-show="true"]{display:block}
@@ -494,7 +515,10 @@ dialog.lb::backdrop{background:rgba(8,8,8,.86);-webkit-backdrop-filter:blur(6px)
 /* ══════════════ ABOUT ══════════════ */
 .about{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,6vw,84px);align-items:center}
 .about-visual{position:relative}
-.about-photo{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-frame{background:#fff;border:1px solid #E4E0DA;padding:10px}
+.about-photo{
+  display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 25%
+}
 .about-card{
   position:absolute;right:-14px;bottom:-22px;background:var(--ink);color:#fff;
   padding:20px 24px;min-width:150px
@@ -549,10 +573,12 @@ dialog.lb::backdrop{background:rgba(8,8,8,.86);-webkit-backdrop-filter:blur(6px)
 .testi q::after{content:close-quote}
 .testi-who{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:18px;border-top:1px solid #EFEAE2}
 .avatar{
-  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
   background:var(--bg-warm);color:var(--terra);font-family:var(--display);
-  font-size:12px;font-weight:700;letter-spacing:.02em
+  font-size:12px;font-weight:700;letter-spacing:.02em;overflow:hidden;
+  border:1px solid #E4E0DA
 }
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .testi-name{font-size:.86rem;font-weight:500;color:var(--ink)}
 .testi-role{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#8A8479;margin-top:2px}
 .drag-hint{margin-top:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A8479}
@@ -617,7 +643,41 @@ dialog.lb::backdrop{background:rgba(8,8,8,.86);-webkit-backdrop-filter:blur(6px)
 .lf-status[data-state="error"]{color:var(--terra-lt)}
 .lf-btn[disabled]{opacity:.55;cursor:progress}
 .lead-form[data-state="sent"] .lf-fields{display:none}
-@media (max-width:640px){.lf-row{grid-template-columns:1fr}.lf-note{max-width:none}}
+
+/* ── 2026 package sheet capture ── */
+.sheet-capture{
+  max-width:560px;margin:30px auto 0;padding:22px 22px 18px;text-align:left;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035)
+}
+.sheet-capture[hidden],.sc-fallback[hidden],.sc-download[hidden]{display:none}
+.sc-title{display:block;font-family:var(--display);font-size:1.02rem;font-weight:700;color:#fff}
+.sc-lede{margin:7px 0 15px;font-size:.85rem;line-height:1.6;color:rgba(255,255,255,.55)}
+.sc-lede b{color:rgba(255,255,255,.88);font-weight:500}
+.sc-row{display:flex;flex-wrap:wrap;gap:10px}
+.sc-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sc-row input{
+  flex:1 1 210px;min-width:0;font:inherit;font-size:.92rem;color:#fff;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);
+  padding:12px 14px;border-radius:2px;
+  transition:border-color var(--ease),background var(--ease)
+}
+.sc-row input::placeholder{color:rgba(255,255,255,.28)}
+.sc-row input:focus{outline:none;border-color:var(--terra);background:rgba(255,255,255,.08)}
+.sc-btn{flex:0 0 auto}
+.sc-form[data-state="sent"] .sc-row{display:none}
+.sc-note{margin:12px 0 0;font-size:.78rem;line-height:1.55;color:rgba(255,255,255,.42)}
+.sc-note a{color:#fff;border-bottom:1px solid var(--terra)}
+.sc-download{
+  display:inline-flex;align-items:center;gap:8px;margin-top:2px;
+  color:#fff;font-size:.86rem;padding-bottom:2px
+}
+.sc-fallback{margin:18px auto 0;max-width:560px;font-size:.86rem;line-height:1.65;color:rgba(255,255,255,.55)}
+.sc-fallback a{color:#fff;border-bottom:1px solid rgba(255,255,255,.3)}
+.sc-fallback a:hover{border-bottom-color:var(--terra)}
+@media (max-width:640px){
+  .lf-row{grid-template-columns:1fr}.lf-note{max-width:none}
+  .sc-btn{width:100%}
+}
 
 /* ══════════════ FOOTER ══════════════ */
 footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74px) 0 26px;font-size:.86rem}
@@ -655,9 +715,6 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
 @media (max-width:1080px){
   .nav-links{gap:26px}
   .gallery-grid{grid-template-columns:repeat(3,1fr)}
-  .work-grid .p-card{grid-column:span 6}
-  .p-card:nth-child(1),.p-card:nth-child(2){grid-column:span 6}
-  .p-card:nth-child(11){grid-column:span 12}
   .steps{grid-template-columns:repeat(2,1fr);gap:44px 0}
   .steps::before{display:none}
   .about{grid-template-columns:1fr;gap:44px}
@@ -676,7 +733,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
   .nav-links,.nav>.container>.nav-cta{display:none}
   .nav-toggle{display:flex}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .tile--wide{grid-column:span 2}
+  .p-card:nth-child(even){margin-top:0}
   .hero-scroll{display:none}
   /* let the headline find its own breaks on a narrow screen instead of forcing three */
   .hero h1{font-size:clamp(30px,7.6vw,52px)}
@@ -684,7 +741,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
 }
 @media (max-width:620px){
   .work-grid{grid-template-columns:1fr;gap:34px}
-  .work-grid .p-card,.p-card:nth-child(1),.p-card:nth-child(2),.p-card:nth-child(6),.p-card:nth-child(7),.p-card:nth-child(11){grid-column:span 1}
+  .p-card:nth-child(even){margin-top:0}
   .steps{grid-template-columns:1fr;gap:34px}
   .step{padding-right:0}
   .hero-actions .btn{width:100%;justify-content:center}
@@ -819,8 +876,52 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
       </div>
 
       <div class="work-grid">
+        <!-- 1 · WorldWorkHub -->
+        <button class="p-card reveal" type="button"
+                data-img="assets/worldworkhub-extension-landing-page.webp"
+                data-title="WorldWorkHub"
+                data-sub="Product · Chrome Extension Landing Page"
+                data-desc="Launch landing page for a job-discovery Chrome extension — product story, trust section, FAQ and a single install path, alongside the extension interface itself."
+                data-url="https://chromewebstore.google.com/detail/worldworkhub/lkdphbjmngpbgconfojfnnicpdgcdacp">
+          <span class="p-thumb">
+            <img src="assets/worldworkhub-extension-landing-page.webp"
+                 alt="WorldWorkHub Chrome extension landing page hero."
+                 loading="lazy" decoding="async">
+            <span class="p-veil"><span>View project <span class="arw" aria-hidden="true">→</span></span></span>
+          </span>
+          <span class="p-meta">
+            <span class="p-top">
+              <span class="p-name">WorldWorkHub</span>
+              <span class="p-tag">Product</span>
+            </span>
+            <span class="p-desc">Landing page and interface for a job-discovery extension.</span>
+            <span class="p-tags"><span>Landing Page</span><span>Product UI</span><span>Chrome Extension</span></span>
+          </span>
+        </button>
 
-        <!-- 2 · MercyWell -->
+        <!-- 2 · First Macedonian Global Ministry -->
+        <button class="p-card reveal" type="button"
+                data-img="assets/first-macedonian-global-ministry-church-website.webp"
+                data-title="First Macedonian Global Ministry"
+                data-sub="Faith · Church Website · Lagos"
+                data-desc="Ten-page church website for a prophetic ministry in Ejigbo — the weekly rhythm, programmes, broadcast, the book, giving and contact, built to load quickly on a phone.">
+          <span class="p-thumb">
+            <img src="assets/first-macedonian-global-ministry-church-website.webp"
+                 alt="First Macedonian Global Ministry church website hero."
+                 loading="lazy" decoding="async">
+            <span class="p-veil"><span>View project <span class="arw" aria-hidden="true">→</span></span></span>
+          </span>
+          <span class="p-meta">
+            <span class="p-top">
+              <span class="p-name">First Macedonian Global Ministry</span>
+              <span class="p-tag">Faith</span>
+            </span>
+            <span class="p-desc">Church website covering programmes, broadcast, the book and giving.</span>
+            <span class="p-tags"><span>Church Website</span><span>Multi-page</span><span>Content Structure</span></span>
+          </span>
+        </button>
+
+        <!-- 3 · MercyWell Maritime -->
         <button class="p-card reveal" type="button"
                 data-img="assets/mercywell-maritime-corporate-website.webp"
                 data-title="MercyWell Maritime"
@@ -839,28 +940,6 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
             </span>
             <span class="p-desc">Corporate web presence and identity for a maritime logistics firm.</span>
             <span class="p-tags"><span>Corporate Website</span><span>Brand Identity</span></span>
-          </span>
-        </button>
-
-        <!-- 3 · BNH -->
-        <button class="p-card reveal" type="button"
-                data-img="assets/business-network-hub-webapp-ui-ux.webp"
-                data-title="Business Network Hub"
-                data-sub="Business · Strategy + Web App"
-                data-desc="Brand strategy and web app UI/UX for a business network — positioning first, interface second.">
-          <span class="p-thumb">
-            <img src="assets/business-network-hub-webapp-ui-ux.webp"
-                 alt="Business Network Hub brand strategy and web app UI/UX design."
-                 loading="lazy" decoding="async">
-            <span class="p-veil"><span>View project <span class="arw" aria-hidden="true">→</span></span></span>
-          </span>
-          <span class="p-meta">
-            <span class="p-top">
-              <span class="p-name">Business Network Hub</span>
-              <span class="p-tag">Strategy</span>
-            </span>
-            <span class="p-desc">Strategy-led brand and web app interface for a business network.</span>
-            <span class="p-tags"><span>Brand Strategy</span><span>UI/UX</span></span>
           </span>
         </button>
 
@@ -886,7 +965,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
         </button>
 
-        <!-- 5 · EQ -->
+        <!-- 5 · EQ Training Dashboard -->
         <button class="p-card reveal" type="button"
                 data-img="assets/eq-training-dashboard-01.webp"
                 data-title="EQ Training Dashboard"
@@ -908,7 +987,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
         </button>
 
-        <!-- 6 · Broadcast suite -->
+        <!-- 6 · TV &amp; Broadcast Suite -->
         <button class="p-card reveal" type="button"
                 data-img="assets/a-million-ways-to-pitch-tv-branding-01.webp"
                 data-title="TV &amp; Broadcast Suite"
@@ -974,7 +1053,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
         </button>
 
-        <!-- 9 · Toke -->
+        <!-- 9 · Toke Cosmetics -->
         <button class="p-card reveal" type="button"
                 data-img="assets/toke-cosmetics-promo-stand-01.webp"
                 data-title="Toke Cosmetics"
@@ -996,7 +1075,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
         </button>
 
-        <!-- 10 · Fintech campaign -->
+        <!-- 10 · PurpleMoney &amp; BuyIT -->
         <button class="p-card reveal" type="button"
                 data-img="assets/purplemoney-mobile-banking-ad.webp"
                 data-title="PurpleMoney &amp; BuyIT"
@@ -1018,52 +1097,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </span>
         </button>
 
-        <!-- 11 · First Macedonian Global Ministry -->
-        <button class="p-card reveal" type="button"
-                data-img="assets/first-macedonian-global-ministry-church-website.webp"
-                data-title="First Macedonian Global Ministry"
-                data-sub="Faith · Church Website · Lagos"
-                data-desc="Ten-page church website for a prophetic ministry in Ejigbo — the weekly rhythm, programmes, broadcast, the book, giving and contact, built to load quickly on a phone.">
-          <span class="p-thumb">
-            <img src="assets/first-macedonian-global-ministry-church-website.webp"
-                 alt="First Macedonian Global Ministry church website hero."
-                 loading="lazy" decoding="async">
-            <span class="p-veil"><span>View project <span class="arw" aria-hidden="true">→</span></span></span>
-          </span>
-          <span class="p-meta">
-            <span class="p-top">
-              <span class="p-name">First Macedonian Global Ministry</span>
-              <span class="p-tag">Faith</span>
-            </span>
-            <span class="p-desc">Church website covering programmes, broadcast, the book and giving.</span>
-            <span class="p-tags"><span>Church Website</span><span>Multi-page</span><span>Content Structure</span></span>
-          </span>
-        </button>
-
-        <!-- 12 · WorldWorkHub -->
-        <button class="p-card reveal" type="button"
-                data-img="assets/worldworkhub-extension-landing-page.webp"
-                data-title="WorldWorkHub"
-                data-sub="Product · Chrome Extension Landing Page"
-                data-desc="Launch landing page for a job-discovery Chrome extension — product story, trust section, FAQ and a single install path, alongside the extension interface itself."
-                data-url="https://chromewebstore.google.com/detail/worldworkhub/lkdphbjmngpbgconfojfnnicpdgcdacp">
-          <span class="p-thumb">
-            <img src="assets/worldworkhub-extension-landing-page.webp"
-                 alt="WorldWorkHub Chrome extension landing page hero."
-                 loading="lazy" decoding="async">
-            <span class="p-veil"><span>View project <span class="arw" aria-hidden="true">→</span></span></span>
-          </span>
-          <span class="p-meta">
-            <span class="p-top">
-              <span class="p-name">WorldWorkHub</span>
-              <span class="p-tag">Product</span>
-            </span>
-            <span class="p-desc">Landing page and interface for a job-discovery extension.</span>
-            <span class="p-tags"><span>Landing Page</span><span>Product UI</span><span>Chrome Extension</span></span>
-          </span>
-        </button>
-
-        <!-- 15 · GREiPR — pending snapshots (TODO: Toluwase to supply) -->
+        <!-- 11 · GREiPR Group -->
         <div class="p-card p-card--pending reveal">
           <span class="p-thumb">
             <span class="pending-note">
@@ -1100,293 +1134,238 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           <h2 class="section-title">The work, on the wall.</h2>
           <p class="lede">
             Commissioned projects and personal experiments from the archive — identity systems,
-            interfaces, print and product design. Click any piece to view it properly.
+            interfaces, print and product design. Pieces from the same project are stacked — open one to browse the set.
           </p>
         </div>
-        <p class="label" id="galCount">44 pieces · 2021—2026</p>
+        <p class="label" id="galCount">41 pieces · 21 stacks · 2021—2026</p>
       </div>
 
       <div class="filters" role="group" aria-label="Filter work by discipline">
-        <button type="button" class="chip" data-filter="all" aria-pressed="true">All Work <span>44</span></button>
-        <button type="button" class="chip" data-filter="tv" aria-pressed="false">TV &amp; Broadcast <span>9</span></button>
-        <button type="button" class="chip" data-filter="identity" aria-pressed="false">Brand Identity <span>8</span></button>
-        <button type="button" class="chip" data-filter="web" aria-pressed="false">Web &amp; UI <span>9</span></button>
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All Work <span>41</span></button>
+        <button type="button" class="chip" data-filter="tv" aria-pressed="false">TV &amp; Broadcast <span>8</span></button>
+        <button type="button" class="chip" data-filter="identity" aria-pressed="false">Brand Identity <span>7</span></button>
+        <button type="button" class="chip" data-filter="web" aria-pressed="false">Web &amp; UI <span>8</span></button>
         <button type="button" class="chip" data-filter="print" aria-pressed="false">Packaging &amp; Print <span>8</span></button>
         <button type="button" class="chip" data-filter="social" aria-pressed="false">Social &amp; OOH <span>3</span></button>
         <button type="button" class="chip" data-filter="expo" aria-pressed="false">Experiential <span>7</span></button>
       </div>
 
       <div class="gallery-grid" id="galleryGrid">
-      <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="A Million Ways to Pitch" data-sub="Title card · TV &amp; Broadcast" data-desc="Wordmark and title card for a television pitch format.">
-          <span class="tile-frame"><img src="assets/a-million-ways-to-pitch-tv-branding-01.webp" alt="A Million Ways to Pitch title card — white serif wordmark on a black ground." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">A Million Ways to Pitch</span><span class="tile-sub">Title card</span></span>
+      <figure class="tile stack" data-cat="tv">
+        <button type="button" class="tile-btn" data-stack="A Million Ways to Pitch">
+          <span class="tile-frame"><img src="assets/a-million-ways-to-pitch-tv-branding-01.webp" alt="A Million Ways to Pitch title card — white serif wordmark on a black ground." loading="lazy" decoding="async"><span class="stack-count" aria-hidden="true">2</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">A Million Ways to Pitch</span><span class="tile-sub">TV &amp; Broadcast · 2 pieces</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/a-million-ways-to-pitch-tv-branding-01.webp" data-title="A Million Ways to Pitch" data-sub="Title card · TV &amp; Broadcast" data-desc="Wordmark and title card for a television pitch format." data-alt="A Million Ways to Pitch title card — white serif wordmark on a black ground."></span>
+          <span data-img="assets/a-million-ways-to-pitch-tv-branding-02.webp" data-title="A Million Ways to Pitch" data-sub="Key art · TV &amp; Broadcast" data-desc="Campaign key art built on the same typographic system as the title card." data-alt="Second A Million Ways to Pitch artwork using the show typography."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="A Million Ways to Pitch" data-sub="Key art · TV &amp; Broadcast" data-desc="Campaign key art built on the same typographic system as the title card.">
-          <span class="tile-frame"><img src="assets/a-million-ways-to-pitch-tv-branding-02.webp" alt="Second A Million Ways to Pitch artwork using the show typography." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">A Million Ways to Pitch</span><span class="tile-sub">Key art</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="Bon Voyage" data-sub="Show identity · TV &amp; Broadcast" data-desc="Identity for a travel-led television format.">
+        <button type="button" class="tile-btn" data-stack="Bon Voyage">
           <span class="tile-frame"><img src="assets/bon-voyage-tv-show-branding.webp" alt="Bon Voyage television show branding artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Bon Voyage</span><span class="tile-sub">Show identity</span></span>
+          <span class="tile-cap"><span class="tile-name">Bon Voyage</span><span class="tile-sub">Show identity · TV &amp; Broadcast</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/bon-voyage-tv-show-branding.webp" data-title="Bon Voyage" data-sub="Show identity · TV &amp; Broadcast" data-desc="Identity for a travel-led television format." data-alt="Bon Voyage television show branding artwork."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="Digi Kraft" data-sub="Show identity · TV &amp; Broadcast" data-desc="Branding package for a digital craft series.">
+        <button type="button" class="tile-btn" data-stack="Digi Kraft">
           <span class="tile-frame"><img src="assets/digi-kraft-tv-show-branding.webp" alt="Digi Kraft television show branding artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Digi Kraft</span><span class="tile-sub">Show identity</span></span>
+          <span class="tile-cap"><span class="tile-name">Digi Kraft</span><span class="tile-sub">Show identity · TV &amp; Broadcast</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/digi-kraft-tv-show-branding.webp" data-title="Digi Kraft" data-sub="Show identity · TV &amp; Broadcast" data-desc="Branding package for a digital craft series." data-alt="Digi Kraft television show branding artwork."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="GateKeepers" data-sub="Key art · TV &amp; Broadcast" data-desc="Key art and tagline lock-up — “Custodians of the future”.">
+        <button type="button" class="tile-btn" data-stack="GateKeepers">
           <span class="tile-frame"><img src="assets/gatekeepers-tv-show-branding-01.webp" alt="GateKeepers key art: bold black lettering on yellow with the tagline Custodians of the future." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">GateKeepers</span><span class="tile-sub">Key art</span></span>
+          <span class="tile-cap"><span class="tile-name">GateKeepers</span><span class="tile-sub">Key art · TV &amp; Broadcast</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/gatekeepers-tv-show-branding-01.webp" data-title="GateKeepers" data-sub="Key art · TV &amp; Broadcast" data-desc="Key art and tagline lock-up — “Custodians of the future”." data-alt="GateKeepers key art: bold black lettering on yellow with the tagline Custodians of the future."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="GateKeepers" data-sub="Brand extension · TV &amp; Broadcast" data-desc="Secondary artwork extending the GateKeepers palette and mark.">
-          <span class="tile-frame"><img src="assets/gatekeepers-tv-show-branding-02.webp" alt="Secondary GateKeepers artwork extending the show palette." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">GateKeepers</span><span class="tile-sub">Brand extension</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="InTune" data-sub="Show identity · TV &amp; Broadcast" data-desc="Identity for a music-led television show.">
+        <button type="button" class="tile-btn" data-stack="InTune">
           <span class="tile-frame"><img src="assets/intune-tv-show-branding.webp" alt="InTune television show branding artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">InTune</span><span class="tile-sub">Show identity</span></span>
+          <span class="tile-cap"><span class="tile-name">InTune</span><span class="tile-sub">Show identity · TV &amp; Broadcast</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/intune-tv-show-branding.webp" data-title="InTune" data-sub="Show identity · TV &amp; Broadcast" data-desc="Identity for a music-led television show." data-alt="InTune television show branding artwork."></span>
+        </div>
       </figure>
-      <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="OneKobo" data-sub="Show identity · TV &amp; Broadcast" data-desc="Identity for a millennial money-and-culture show, built around the kobo coin.">
-          <span class="tile-frame"><img src="assets/onekobo-tv-show-branding-01.webp" alt="OneKobo show brandmark: gold coin device on deep blue." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">OneKobo</span><span class="tile-sub">Show identity</span></span>
+      <figure class="tile stack" data-cat="tv">
+        <button type="button" class="tile-btn" data-stack="OneKobo">
+          <span class="tile-frame"><img src="assets/onekobo-tv-show-branding-01.webp" alt="OneKobo show brandmark: gold coin device on deep blue." loading="lazy" decoding="async"><span class="stack-count" aria-hidden="true">2</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">OneKobo</span><span class="tile-sub">TV &amp; Broadcast · 2 pieces</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/onekobo-tv-show-branding-01.webp" data-title="OneKobo" data-sub="Show identity · TV &amp; Broadcast" data-desc="Identity for a millennial money-and-culture show, built around the kobo coin." data-alt="OneKobo show brandmark: gold coin device on deep blue."></span>
+          <span data-img="assets/onekobo-tv-show-branding-02.webp" data-title="OneKobo" data-sub="Format deck · TV &amp; Broadcast" data-desc="Format deck artwork — synopsis, positioning and what makes the show different." data-alt="OneKobo format deck artwork with show synopsis and positioning copy."></span>
+        </div>
       </figure>
-      <figure class="tile" data-cat="tv">
-        <button type="button" class="tile-btn" data-title="OneKobo" data-sub="Format deck · TV &amp; Broadcast" data-desc="Format deck artwork — synopsis, positioning and what makes the show different.">
-          <span class="tile-frame"><img src="assets/onekobo-tv-show-branding-02.webp" alt="OneKobo format deck artwork with show synopsis and positioning copy." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">OneKobo</span><span class="tile-sub">Format deck</span></span>
+      <figure class="tile stack" data-cat="identity">
+        <button type="button" class="tile-btn" data-stack="Kalyaan">
+          <span class="tile-frame"><img src="assets/kalyaan-brand-identity-01.webp" alt="Kalyaan brand identity board." loading="lazy" decoding="async"><span class="stack-count" aria-hidden="true">6</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">Kalyaan</span><span class="tile-sub">Brand Identity · 6 pieces</span></span>
         </button>
-      </figure>
-      <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Kalyaan" data-sub="Brand board · Brand Identity" data-desc="Brand design exploration for the Kalyaan identity.">
-          <span class="tile-frame"><img src="assets/kalyaan-brand-identity-01.webp" alt="Kalyaan brand identity board." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Kalyaan</span><span class="tile-sub">Brand board</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Kalyaan" data-sub="Colour system · Brand Identity" data-desc="Primary and secondary palette, documented with hex values.">
-          <span class="tile-frame"><img src="assets/kalyaan-brand-identity-02.webp" alt="Kalyaan primary and secondary colour palette with hex values." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Kalyaan</span><span class="tile-sub">Colour system</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Kalyaan" data-sub="Palette study · Brand Identity" data-desc="Extended colour study drawn from the same brand system.">
-          <span class="tile-frame"><img src="assets/kalyaan-brand-identity-03.webp" alt="Kalyaan extended colour study." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Kalyaan</span><span class="tile-sub">Palette study</span></span>
-        </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/kalyaan-brand-identity-01.webp" data-title="Kalyaan" data-sub="Brand board · Brand Identity" data-desc="Brand design exploration for the Kalyaan identity." data-alt="Kalyaan brand identity board."></span>
+          <span data-img="assets/kalyaan-brand-identity-02.webp" data-title="Kalyaan" data-sub="Colour system · Brand Identity" data-desc="Primary and secondary palette, documented with hex values." data-alt="Kalyaan primary and secondary colour palette with hex values."></span>
+          <span data-img="assets/kalyaan-brand-identity-03.webp" data-title="Kalyaan" data-sub="Palette study · Brand Identity" data-desc="Extended colour study drawn from the same brand system." data-alt="Kalyaan extended colour study."></span>
+          <span data-img="assets/kalyaan-brand-identity-04.webp" data-title="Kalyaan" data-sub="Application · Brand Identity" data-desc="The identity applied across brand touchpoints." data-alt="Kalyaan identity applied across touchpoints."></span>
+          <span data-img="assets/kalyaan-brand-identity-05.webp" data-title="Kalyaan" data-sub="Art direction · Brand Identity" data-desc="Visual direction board for the Kalyaan identity." data-alt="Kalyaan art direction board."></span>
+          <span data-img="assets/kalyaan-brand-identity-06.webp" data-title="Kalyaan" data-sub="Brand overview · Brand Identity" data-desc="Full identity overview — marks, colour and type." data-alt="Kalyaan full brand identity overview."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Kalyaan" data-sub="Application · Brand Identity" data-desc="The identity applied across brand touchpoints.">
-          <span class="tile-frame"><img src="assets/kalyaan-brand-identity-04.webp" alt="Kalyaan identity applied across touchpoints." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Kalyaan</span><span class="tile-sub">Application</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Kalyaan" data-sub="Art direction · Brand Identity" data-desc="Visual direction board for the Kalyaan identity.">
-          <span class="tile-frame"><img src="assets/kalyaan-brand-identity-05.webp" alt="Kalyaan art direction board." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Kalyaan</span><span class="tile-sub">Art direction</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Kalyaan" data-sub="Brand overview · Brand Identity" data-desc="Full identity overview — marks, colour and type.">
-          <span class="tile-frame"><img src="assets/kalyaan-brand-identity-06.webp" alt="Kalyaan full brand identity overview." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Kalyaan</span><span class="tile-sub">Brand overview</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Eden&#x27;s Essence" data-sub="Logo &amp; identity · Brand Identity" data-desc="Wordmark and mark for a luxury perfume and oils house.">
-          <span class="tile-frame"><img src="assets/edens-essence-logo-branding.webp" alt="Eden’s Essence logo — white wordmark with flower and bottle marks on magenta." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Eden&#x27;s Essence</span><span class="tile-sub">Logo &amp; identity</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="identity">
-        <button type="button" class="tile-btn" data-title="Emir of Lagos" data-sub="Logo design · Brand Identity" data-desc="Crest-led mark for the Emir of Lagos.">
+        <button type="button" class="tile-btn" data-stack="Emir of Lagos">
           <span class="tile-frame"><img src="assets/emir-of-lagos-logo-design.webp" alt="Emir of Lagos logo design." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Emir of Lagos</span><span class="tile-sub">Logo design</span></span>
+          <span class="tile-cap"><span class="tile-name">Emir of Lagos</span><span class="tile-sub">Logo design · Brand Identity</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/emir-of-lagos-logo-design.webp" data-title="Emir of Lagos" data-sub="Logo design · Brand Identity" data-desc="Crest-led mark for the Emir of Lagos." data-alt="Emir of Lagos logo design."></span>
+        </div>
       </figure>
-      <figure class="tile tile--wide" data-cat="web">
-        <button type="button" class="tile-btn" data-title="First Macedonian Global Ministry" data-sub="Church website · Web &amp; UI" data-desc="Hero of a ten-page church website — service rhythm, programmes, broadcast, the book and giving.">
+      <figure class="tile" data-cat="web">
+        <button type="button" class="tile-btn" data-stack="First Macedonian Global Ministry">
           <span class="tile-frame"><img src="assets/first-macedonian-global-ministry-church-website.webp" alt="First Macedonian Global Ministry church website hero." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">First Macedonian Global Ministry</span><span class="tile-sub">Church website</span></span>
+          <span class="tile-cap"><span class="tile-name">First Macedonian Global Ministry</span><span class="tile-sub">Church website · Web &amp; UI</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/first-macedonian-global-ministry-church-website.webp" data-title="First Macedonian Global Ministry" data-sub="Church website · Web &amp; UI" data-desc="Hero of a ten-page church website — service rhythm, programmes, broadcast, the book and giving." data-alt="First Macedonian Global Ministry church website hero."></span>
+        </div>
       </figure>
-      <figure class="tile tile--wide" data-cat="web">
-        <button type="button" class="tile-btn" data-title="WorldWorkHub" data-sub="Product landing page · Web &amp; UI" data-desc="Launch landing page for a job-discovery Chrome extension, with the extension interface shown alongside.">
+      <figure class="tile" data-cat="web">
+        <button type="button" class="tile-btn" data-stack="WorldWorkHub">
           <span class="tile-frame"><img src="assets/worldworkhub-extension-landing-page.webp" alt="WorldWorkHub extension landing page hero." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">WorldWorkHub</span><span class="tile-sub">Product landing page</span></span>
+          <span class="tile-cap"><span class="tile-name">WorldWorkHub</span><span class="tile-sub">Product landing page · Web &amp; UI</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/worldworkhub-extension-landing-page.webp" data-title="WorldWorkHub" data-sub="Product landing page · Web &amp; UI" data-desc="Launch landing page for a job-discovery Chrome extension, with the extension interface shown alongside." data-alt="WorldWorkHub extension landing page hero."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="web">
-        <button type="button" class="tile-btn" data-title="MercyWell Maritime" data-sub="Corporate website · Web &amp; UI" data-desc="Corporate web presence and identity for a maritime logistics firm.">
+        <button type="button" class="tile-btn" data-stack="MercyWell Maritime">
           <span class="tile-frame"><img src="assets/mercywell-maritime-corporate-website.webp" alt="MercyWell Maritime corporate website and brand identity." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">MercyWell Maritime</span><span class="tile-sub">Corporate website</span></span>
+          <span class="tile-cap"><span class="tile-name">MercyWell Maritime</span><span class="tile-sub">Corporate website · Web &amp; UI</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/mercywell-maritime-corporate-website.webp" data-title="MercyWell Maritime" data-sub="Corporate website · Web &amp; UI" data-desc="Corporate web presence and identity for a maritime logistics firm." data-alt="MercyWell Maritime corporate website and brand identity."></span>
+        </div>
       </figure>
-      <figure class="tile" data-cat="web">
-        <button type="button" class="tile-btn" data-title="Business Network Hub" data-sub="Web app UI/UX · Web &amp; UI" data-desc="Brand strategy and web app UI/UX for a business network.">
-          <span class="tile-frame"><img src="assets/business-network-hub-webapp-ui-ux.webp" alt="Business Network Hub web app UI/UX design." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Business Network Hub</span><span class="tile-sub">Web app UI/UX</span></span>
+      <figure class="tile stack" data-cat="web">
+        <button type="button" class="tile-btn" data-stack="Frank D Nero">
+          <span class="tile-frame"><img src="assets/frank-dnero-artist-website.webp" alt="Frank D Nero artist website and brand management artwork." loading="lazy" decoding="async"><span class="stack-count" aria-hidden="true">2</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">Frank D Nero</span><span class="tile-sub">Web &amp; UI · 2 pieces</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/frank-dnero-artist-website.webp" data-title="Frank D Nero" data-sub="Artist website · Web &amp; UI" data-desc="Artist site and brand management for an Afrobeat act." data-alt="Frank D Nero artist website and brand management artwork."></span>
+          <span data-img="assets/frank-dnero-artist-website-social.webp" data-title="Frank D Nero" data-sub="Social kit · Web &amp; UI" data-desc="Social artwork from the same brand management system." data-alt="Frank D Nero social media artwork from the brand system."></span>
+        </div>
       </figure>
-      <figure class="tile" data-cat="web">
-        <button type="button" class="tile-btn" data-title="Frank D Nero" data-sub="Artist website · Web &amp; UI" data-desc="Artist site and brand management for an Afrobeat act.">
-          <span class="tile-frame"><img src="assets/frank-dnero-artist-website.webp" alt="Frank D Nero artist website and brand management artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Frank D Nero</span><span class="tile-sub">Artist website</span></span>
+      <figure class="tile stack" data-cat="web">
+        <button type="button" class="tile-btn" data-stack="EQ Training Dashboard">
+          <span class="tile-frame"><img src="assets/eq-training-dashboard-01.webp" alt="EQ Training Dashboard React interface, screen one." loading="lazy" decoding="async"><span class="stack-count" aria-hidden="true">3</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">EQ Training Dashboard</span><span class="tile-sub">Web &amp; UI · 3 pieces</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/eq-training-dashboard-01.webp" data-title="EQ Training Dashboard" data-sub="Web app UI · Web &amp; UI" data-desc="React dashboard interface for an emotional-intelligence training programme." data-alt="EQ Training Dashboard React interface, screen one."></span>
+          <span data-img="assets/eq-training-dashboard-02.webp" data-title="EQ Training Dashboard" data-sub="Web app UI · Web &amp; UI" data-desc="Second view from the same L&amp;D dashboard." data-alt="EQ Training Dashboard interface, screen two."></span>
+          <span data-img="assets/eq-training-dashboard-03.webp" data-title="EQ Training Dashboard" data-sub="Dashboard view · Web &amp; UI" data-desc="Reporting view showing learner progress at a glance." data-alt="EQ Training Dashboard reporting view."></span>
+        </div>
       </figure>
-      <figure class="tile" data-cat="web">
-        <button type="button" class="tile-btn" data-title="Frank D Nero" data-sub="Social kit · Web &amp; UI" data-desc="Social artwork from the same brand management system.">
-          <span class="tile-frame"><img src="assets/frank-dnero-artist-website-social.webp" alt="Frank D Nero social media artwork from the brand system." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Frank D Nero</span><span class="tile-sub">Social kit</span></span>
+      <figure class="tile stack" data-cat="print">
+        <button type="button" class="tile-btn" data-stack="Paseal Joe">
+          <span class="tile-frame"><img src="assets/paseal-joe-packaging-01.webp" alt="Paseal Joe packaging concepts: three cartons on a wooden table." loading="lazy" decoding="async"><span class="stack-count" aria-hidden="true">4</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">Paseal Joe</span><span class="tile-sub">Packaging &amp; Print · 4 pieces</span></span>
         </button>
-      </figure>
-      <figure class="tile" data-cat="web">
-        <button type="button" class="tile-btn" data-title="EQ Training Dashboard" data-sub="Web app UI · Web &amp; UI" data-desc="React dashboard interface for an emotional-intelligence training programme.">
-          <span class="tile-frame"><img src="assets/eq-training-dashboard-01.webp" alt="EQ Training Dashboard React interface, screen one." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">EQ Training Dashboard</span><span class="tile-sub">Web app UI</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="web">
-        <button type="button" class="tile-btn" data-title="EQ Training Dashboard" data-sub="Web app UI · Web &amp; UI" data-desc="Second view from the same L&amp;D dashboard.">
-          <span class="tile-frame"><img src="assets/eq-training-dashboard-02.webp" alt="EQ Training Dashboard interface, screen two." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">EQ Training Dashboard</span><span class="tile-sub">Web app UI</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="web">
-        <button type="button" class="tile-btn" data-title="EQ Training Dashboard" data-sub="Dashboard view · Web &amp; UI" data-desc="Reporting view showing learner progress at a glance.">
-          <span class="tile-frame"><img src="assets/eq-training-dashboard-03.webp" alt="EQ Training Dashboard reporting view." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">EQ Training Dashboard</span><span class="tile-sub">Dashboard view</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="print">
-        <button type="button" class="tile-btn" data-title="Paseal Joe" data-sub="Packaging · Packaging &amp; Print" data-desc="Three-pack packaging concept photographed as a set.">
-          <span class="tile-frame"><img src="assets/paseal-joe-packaging-01.webp" alt="Paseal Joe packaging concepts: three cartons on a wooden table." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Paseal Joe</span><span class="tile-sub">Packaging</span></span>
-        </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/paseal-joe-packaging-01.webp" data-title="Paseal Joe" data-sub="Packaging · Packaging &amp; Print" data-desc="Three-pack packaging concept photographed as a set." data-alt="Paseal Joe packaging concepts: three cartons on a wooden table."></span>
+          <span data-img="assets/paseal-joe-packaging-02.webp" data-title="Paseal Joe" data-sub="Packaging system · Packaging &amp; Print" data-desc="Label and carton system for the Paseal Joe range." data-alt="Paseal Joe packaging system and label artwork."></span>
+          <span data-img="assets/paseal-joe-packaging-03.webp" data-title="Paseal Joe" data-sub="Production artwork · Packaging &amp; Print" data-desc="Production-ready artwork for the packaging run." data-alt="Paseal Joe production packaging artwork."></span>
+          <span data-img="assets/paseal-joe-packaging-04.webp" data-title="Paseal Joe" data-sub="Packaging range · Packaging &amp; Print" data-desc="The full range shown together in one hero shot." data-alt="Paseal Joe packaging range shown together."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="print">
-        <button type="button" class="tile-btn" data-title="Paseal Joe" data-sub="Packaging system · Packaging &amp; Print" data-desc="Label and carton system for the Paseal Joe range.">
-          <span class="tile-frame"><img src="assets/paseal-joe-packaging-02.webp" alt="Paseal Joe packaging system and label artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Paseal Joe</span><span class="tile-sub">Packaging system</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="print">
-        <button type="button" class="tile-btn" data-title="Paseal Joe" data-sub="Production artwork · Packaging &amp; Print" data-desc="Production-ready artwork for the packaging run.">
-          <span class="tile-frame"><img src="assets/paseal-joe-packaging-03.webp" alt="Paseal Joe production packaging artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Paseal Joe</span><span class="tile-sub">Production artwork</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="print">
-        <button type="button" class="tile-btn" data-title="Paseal Joe" data-sub="Packaging range · Packaging &amp; Print" data-desc="The full range shown together in one hero shot.">
-          <span class="tile-frame"><img src="assets/paseal-joe-packaging-04.webp" alt="Paseal Joe packaging range shown together." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Paseal Joe</span><span class="tile-sub">Packaging range</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="print">
-        <button type="button" class="tile-btn" data-title="Pigeon Sounds" data-sub="Book cover &amp; layout · Packaging &amp; Print" data-desc="Cover and interior layout for a Pigeon Sounds title.">
+        <button type="button" class="tile-btn" data-stack="Pigeon Sounds">
           <span class="tile-frame"><img src="assets/pidgeon-sounds-book-cover-layout.webp" alt="Pigeon Sounds book cover and page layout design." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Pigeon Sounds</span><span class="tile-sub">Book cover &amp; layout</span></span>
+          <span class="tile-cap"><span class="tile-name">Pigeon Sounds</span><span class="tile-sub">Book cover &amp; layout · Packaging &amp; Print</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/pidgeon-sounds-book-cover-layout.webp" data-title="Pigeon Sounds" data-sub="Book cover &amp; layout · Packaging &amp; Print" data-desc="Cover and interior layout for a Pigeon Sounds title." data-alt="Pigeon Sounds book cover and page layout design."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="print">
-        <button type="button" class="tile-btn" data-title="ACM Tributes" data-sub="Photo book · Packaging &amp; Print" data-desc="Photo book design and layout — Tributes 2021.">
+        <button type="button" class="tile-btn" data-stack="ACM Tributes">
           <span class="tile-frame"><img src="assets/acm-tributes-photobook-2021.webp" alt="ACM Tributes 2021 photo book cover in purple and gold." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">ACM Tributes</span><span class="tile-sub">Photo book</span></span>
+          <span class="tile-cap"><span class="tile-name">ACM Tributes</span><span class="tile-sub">Photo book · Packaging &amp; Print</span></span>
         </button>
-      </figure>
-      <figure class="tile tile--wide" data-cat="print">
-        <button type="button" class="tile-btn" data-title="Leecious" data-sub="Flyer &amp; social · Packaging &amp; Print" data-desc="Grocery delivery flyer with the matching social campaign.">
-          <span class="tile-frame"><img src="assets/leecious-groceries-flyer-social.webp" alt="Leecious grocery delivery flyers and social media marketing artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Leecious</span><span class="tile-sub">Flyer &amp; social</span></span>
-        </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/acm-tributes-photobook-2021.webp" data-title="ACM Tributes" data-sub="Photo book · Packaging &amp; Print" data-desc="Photo book design and layout — Tributes 2021." data-alt="ACM Tributes 2021 photo book cover in purple and gold."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="print">
-        <button type="button" class="tile-btn" data-title="Nigeria @ 60" data-sub="Commemorative flyer · Packaging &amp; Print" data-desc="Television flyer for the Nigeria 60th anniversary broadcast.">
+        <button type="button" class="tile-btn" data-stack="Leecious">
+          <span class="tile-frame"><img src="assets/leecious-groceries-flyer-social.webp" alt="Leecious grocery delivery flyers and social media marketing artwork." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">Leecious</span><span class="tile-sub">Flyer &amp; social · Packaging &amp; Print</span></span>
+        </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/leecious-groceries-flyer-social.webp" data-title="Leecious" data-sub="Flyer &amp; social · Packaging &amp; Print" data-desc="Grocery delivery flyer with the matching social campaign." data-alt="Leecious grocery delivery flyers and social media marketing artwork."></span>
+        </div>
+      </figure>
+      <figure class="tile" data-cat="print">
+        <button type="button" class="tile-btn" data-stack="Nigeria @ 60">
           <span class="tile-frame"><img src="assets/happy-birthday-nigeria-60-flyer.webp" alt="Happy Birthday Nigeria at 60 television flyer." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Nigeria @ 60</span><span class="tile-sub">Commemorative flyer</span></span>
+          <span class="tile-cap"><span class="tile-name">Nigeria @ 60</span><span class="tile-sub">Commemorative flyer · Packaging &amp; Print</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/happy-birthday-nigeria-60-flyer.webp" data-title="Nigeria @ 60" data-sub="Commemorative flyer · Packaging &amp; Print" data-desc="Television flyer for the Nigeria 60th anniversary broadcast." data-alt="Happy Birthday Nigeria at 60 television flyer."></span>
+        </div>
+      </figure>
+      <figure class="tile stack" data-cat="social">
+        <button type="button" class="tile-btn" data-stack="BuyIT">
+          <span class="tile-frame"><video poster="assets/buyit-billboard-ad-poster.webp" muted loop playsinline preload="none" width="896" height="288" aria-hidden="true"><source src="assets/buyit-billboard-ad.webm" type="video/webm"><source src="assets/buyit-billboard-ad.mp4" type="video/mp4"></video><span class="stack-count" aria-hidden="true">2</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">BuyIT</span><span class="tile-sub">Social &amp; OOH · 2 pieces</span></span>
+        </button>
+        <div class="stack-items" hidden>
+          <span data-video="assets/buyit-billboard-ad.mp4" data-title="BuyIT" data-sub="Motion billboard · Social &amp; OOH" data-desc="Animated billboard spot cut for a 896×288 digital screen." data-alt=""></span>
+          <span data-img="assets/buyit-purple-shop-billboard.webp" data-title="BuyIT" data-sub="Billboard · Social &amp; OOH" data-desc="Out-of-home billboard for the BuyIT purple shop campaign." data-alt="BuyIT purple shop billboard advertisement."></span>
+        </div>
       </figure>
       <figure class="tile" data-cat="social">
-        <button type="button" class="tile-btn" data-title="BuyIT" data-sub="Billboard · Social &amp; OOH" data-desc="Out-of-home billboard for the BuyIT purple shop campaign.">
-          <span class="tile-frame"><img src="assets/buyit-purple-shop-billboard.webp" alt="BuyIT purple shop billboard advertisement." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">BuyIT</span><span class="tile-sub">Billboard</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="social">
-        <button type="button" class="tile-btn" data-title="PurpleMoney" data-sub="Social ad · Social &amp; OOH" data-desc="Mobile banking ad built around a single action: dial the code.">
+        <button type="button" class="tile-btn" data-stack="PurpleMoney">
           <span class="tile-frame"><img src="assets/purplemoney-mobile-banking-ad.webp" alt="PurpleMoney banking social ad with a character holding a phone and the USSD code." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">PurpleMoney</span><span class="tile-sub">Social ad</span></span>
+          <span class="tile-cap"><span class="tile-name">PurpleMoney</span><span class="tile-sub">Social ad · Social &amp; OOH</span></span>
         </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/purplemoney-mobile-banking-ad.webp" data-title="PurpleMoney" data-sub="Social ad · Social &amp; OOH" data-desc="Mobile banking ad built around a single action: dial the code." data-alt="PurpleMoney banking social ad with a character holding a phone and the USSD code."></span>
+        </div>
       </figure>
-      <figure class="tile tile--wide" data-cat="social">
-        <button type="button" class="tile-btn" data-title="BuyIT" data-sub="Motion billboard · Social &amp; OOH" data-desc="Animated billboard spot cut for a 896×288 digital screen." data-video="assets/buyit-billboard-ad.mp4">
-          <span class="tile-frame"><video src="assets/buyit-billboard-ad.mp4" muted loop playsinline preload="none" width="896" height="288" aria-hidden="true"></video><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">BuyIT</span><span class="tile-sub">Motion billboard</span></span>
+      <figure class="tile stack" data-cat="expo">
+        <button type="button" class="tile-btn" data-stack="Toke Cosmetics">
+          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-2022.webp" alt="Toke Cosmetics promotional stand concept from 2022." loading="lazy" decoding="async"><span class="stack-count" aria-hidden="true">7</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">Experiential · 7 pieces</span></span>
         </button>
-      </figure>
-      <figure class="tile" data-cat="expo">
-        <button type="button" class="tile-btn" data-title="Toke Cosmetics" data-sub="Stand concept · Experiential" data-desc="Early promotional stand concept for Toke Cosmetics.">
-          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-2022.webp" alt="Toke Cosmetics promotional stand concept from 2022." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">Stand concept</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="expo">
-        <button type="button" class="tile-btn" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Experiential stand with a product wall, canopy and backlit lock-up.">
-          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-01.webp" alt="Toke Cosmetics experiential promo stand with product wall and canopy." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">Promo stand</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="expo">
-        <button type="button" class="tile-btn" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Second angle of the same stand build.">
-          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-02.webp" alt="Toke Cosmetics promo stand, alternate angle." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">Promo stand</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="expo">
-        <button type="button" class="tile-btn" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Retail-floor view showing the stand in context.">
-          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-03.webp" alt="Toke Cosmetics promo stand in a retail setting." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">Promo stand</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="expo">
-        <button type="button" class="tile-btn" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Detail view of the canopy and product shelving.">
-          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-04.webp" alt="Toke Cosmetics promo stand detail." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">Promo stand</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="expo">
-        <button type="button" class="tile-btn" data-title="Toke Cosmetics" data-sub="2026 refresh · Experiential" data-desc="Updated 2026 stand with the refreshed Toke lock-up.">
-          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-2026-01.webp" alt="Refreshed 2026 Toke Cosmetics promo stand." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">2026 refresh</span></span>
-        </button>
-      </figure>
-      <figure class="tile" data-cat="expo">
-        <button type="button" class="tile-btn" data-title="Toke Cosmetics" data-sub="2026 refresh · Experiential" data-desc="Second view of the 2026 stand refresh.">
-          <span class="tile-frame"><img src="assets/toke-cosmetics-promo-stand-2026-02.webp" alt="2026 Toke Cosmetics promo stand, second view." loading="lazy" decoding="async"><span class="expand" aria-hidden="true">⤢</span></span>
-          <span class="tile-cap"><span class="tile-name">Toke Cosmetics</span><span class="tile-sub">2026 refresh</span></span>
-        </button>
+        <div class="stack-items" hidden>
+          <span data-img="assets/toke-cosmetics-promo-stand-2022.webp" data-title="Toke Cosmetics" data-sub="Stand concept · Experiential" data-desc="Early promotional stand concept for Toke Cosmetics." data-alt="Toke Cosmetics promotional stand concept from 2022."></span>
+          <span data-img="assets/toke-cosmetics-promo-stand-01.webp" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Experiential stand with a product wall, canopy and backlit lock-up." data-alt="Toke Cosmetics experiential promo stand with product wall and canopy."></span>
+          <span data-img="assets/toke-cosmetics-promo-stand-02.webp" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Second angle of the same stand build." data-alt="Toke Cosmetics promo stand, alternate angle."></span>
+          <span data-img="assets/toke-cosmetics-promo-stand-03.webp" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Retail-floor view showing the stand in context." data-alt="Toke Cosmetics promo stand in a retail setting."></span>
+          <span data-img="assets/toke-cosmetics-promo-stand-04.webp" data-title="Toke Cosmetics" data-sub="Promo stand · Experiential" data-desc="Detail view of the canopy and product shelving." data-alt="Toke Cosmetics promo stand detail."></span>
+          <span data-img="assets/toke-cosmetics-promo-stand-2026-01.webp" data-title="Toke Cosmetics" data-sub="2026 refresh · Experiential" data-desc="Updated 2026 stand with the refreshed Toke lock-up." data-alt="Refreshed 2026 Toke Cosmetics promo stand."></span>
+          <span data-img="assets/toke-cosmetics-promo-stand-2026-02.webp" data-title="Toke Cosmetics" data-sub="2026 refresh · Experiential" data-desc="Second view of the 2026 stand refresh." data-alt="2026 Toke Cosmetics promo stand, second view."></span>
+        </div>
       </figure>
       </div>
 
       <p class="gallery-empty" id="galEmpty">No pieces in that discipline yet.</p>
 
       <p class="gal-note">
-        Ordered chronologically inside each discipline, following the studio archive.
+        Grouped by project, then ordered chronologically inside each discipline.
         <b>GREiPR Group</b> is reserved and will be added once its snapshots are supplied.
       </p>
     </div>
@@ -1526,9 +1505,11 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
     <div class="container">
       <div class="about">
         <div class="about-visual reveal">
-          <img class="about-photo" src="assets/toluwase-ogunsola.webp"
-               alt="Toluwase Ogunsola, founder of ToluwaDesigns."
-               width="900" height="1125" loading="lazy" decoding="async">
+          <div class="about-frame">
+            <img class="about-photo" src="assets/toluwase-ogunsola.webp"
+                 alt="Toluwase Ogunsola, founder of ToluwaDesigns."
+                 width="900" height="1125" loading="lazy" decoding="async">
+          </div>
           <div class="about-card">
             <b>24+</b>
             <span>Projects delivered</span>
@@ -1601,7 +1582,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           <q>We needed a site that made a small logistics firm look established. What we got was clearer positioning, better enquiries and a brand we can actually sell with.</q>
           <!-- REVIEW: drafted copy — confirm wording with Fowotade before publishing -->
           <div class="testi-who">
-            <span class="avatar" aria-hidden="true">FS</span>
+            <span class="avatar" aria-hidden="true"><img src="assets/avatar-fowotade.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span>
             <div>
               <div class="testi-name">Fowotade Segun</div>
               <div class="testi-role">Founder, HR &amp; Logistics Firm · Lagos</div>
@@ -1613,7 +1594,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           <q>Guests now find us, see the rooms and book before they call. That alone paid for the project.</q>
           <!-- REVIEW: drafted copy — confirm wording with Gbenga before publishing -->
           <div class="testi-who">
-            <span class="avatar" aria-hidden="true">GO</span>
+            <span class="avatar" aria-hidden="true"><img src="assets/avatar-gbenga.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span>
             <div>
               <div class="testi-name">Gbenga Oguntade</div>
               <div class="testi-role">Founder, Hospitality Brand · Ogbomoso</div>
@@ -1624,7 +1605,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
         <article class="testi">
           <q>Toluwase understood exactly what we needed without us having to over-explain. The site went live faster than I expected and looks better than anything we had before.</q>
           <div class="testi-who">
-            <span class="avatar" aria-hidden="true">RP</span>
+            <span class="avatar" aria-hidden="true"><img src="assets/avatar-raphael.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span>
             <div>
               <div class="testi-name">Rapheal Patrick</div>
               <div class="testi-role">Founder, Creative Studio · Abuja</div>
@@ -1635,7 +1616,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
         <article class="testi">
           <q>We went from taking orders on WhatsApp to having a proper online presence in under two weeks. The difference in how clients perceive us now is noticeable.</q>
           <div class="testi-who">
-            <span class="avatar" aria-hidden="true">CB</span>
+            <span class="avatar" aria-hidden="true"><img src="assets/avatar-cynthia.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span>
             <div>
               <div class="testi-name">Cynthia Baiku</div>
               <div class="testi-role">Founder, Fashion Brand · Nairobi</div>
@@ -1646,7 +1627,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
         <article class="testi">
           <q>The brief was just a mood board and a few sentences. What came back was a full brand identity I was genuinely proud to put my name on.</q>
           <div class="testi-who">
-            <span class="avatar" aria-hidden="true">AI</span>
+            <span class="avatar" aria-hidden="true"><img src="assets/avatar-ademola.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span>
             <div>
               <div class="testi-name">Ademola Ishaku</div>
               <div class="testi-role">COO, Creative Brand · Port Harcourt</div>
@@ -1654,43 +1635,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </div>
         </article>
 
-        <article class="testi">
-          <q>Delivered in days, not months — and he kept us in the loop the whole way through.</q>
-          <!-- REVIEW: drafted copy — confirm wording with Fowotade before publishing -->
-          <div class="testi-who">
-            <span class="avatar" aria-hidden="true">FS</span>
-            <div>
-              <div class="testi-name">Fowotade Segun</div>
-              <div class="testi-role">Founder, HR &amp; Logistics Firm · Lagos</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testi">
-          <q>He asked better questions than any designer we had worked with before.</q>
-          <!-- REVIEW: drafted copy — confirm wording with Cynthia before publishing -->
-          <div class="testi-who">
-            <span class="avatar" aria-hidden="true">CB</span>
-            <div>
-              <div class="testi-name">Cynthia Baiku</div>
-              <div class="testi-role">Founder, Fashion Brand · Nairobi</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testi">
-          <q>The deposit-to-delivery process was the easiest part of our rebrand.</q>
-          <!-- REVIEW: drafted copy — confirm wording with Gbenga before publishing -->
-          <div class="testi-who">
-            <span class="avatar" aria-hidden="true">GO</span>
-            <div>
-              <div class="testi-name">Gbenga Oguntade</div>
-              <div class="testi-role">Founder, Hospitality Brand · Ogbomoso</div>
-            </div>
-          </div>
-        </article>
-      </div>
-      <p class="drag-hint">Scroll, drag or use the arrows — eight client notes, five clients.</p>
+      <p class="drag-hint">Scroll, drag or use the arrows — one note from each client.</p>
     </div>
   </section>
 
@@ -1751,6 +1696,33 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
         The enquiry form opens once its verification service is connected. In the meantime,
         <a href="https://wa.me/2348069360887?text=Hi%20Toluwase%2C%20I%27d%20like%20to%20start%20a%20project" target="_blank" rel="noopener" data-lead="whatsapp" data-cta-location="contact_fallback">WhatsApp me</a>
         or <a href="mailto:wealthyteetoj@gmail.com?subject=Project%20enquiry%20%E2%80%94%20ToluwaDesigns" data-lead="email" data-cta-location="contact_fallback">send an email</a>.
+      </p>
+
+      <div class="sheet-capture" id="sheetCapture" hidden>
+        <span class="sc-title">Not ready to start yet?</span>
+        <p class="sc-lede">Get the <b>2026 package sheet</b> — every package, price, timeline and what’s included, in one PDF.</p>
+        <form class="sc-form" id="sheetForm" action="https://formspree.io/f/xdegkeqe" method="POST">
+          <input type="hidden" name="_subject" value="ToluwaDesigns — 2026 package sheet request">
+          <input type="hidden" name="request" value="2026 package sheet">
+          <div class="lf-hp" aria-hidden="true">
+            <label for="sheet-company-website">Leave this field empty</label>
+            <input id="sheet-company-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="sc-row">
+            <label class="sc-label" for="sheet-email">Email address</label>
+            <input id="sheet-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <button class="btn btn-light sc-btn" type="submit">Get the sheet</button>
+          </div>
+          <p class="lf-status" id="sheetStatus" role="status" aria-live="polite"></p>
+          <p class="sc-note">
+            One email, no newsletter.
+            <a class="sc-download" id="sheetDownload" href="assets/toluwa-designs-2026-package-sheet.pdf" download hidden>Download the 2026 package sheet (PDF)</a>
+          </p>
+        </form>
+      </div>
+
+      <p class="sc-fallback" id="sheetFallback" hidden>
+        Not ready to start yet? <a href="assets/toluwa-designs-2026-package-sheet.pdf" download>The 2026 package sheet (PDF)</a> has every package, price and timeline.
       </p>
 
       <div class="contact-meta">
@@ -1940,19 +1912,46 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
   var empty = document.getElementById('galEmpty');
   var countEl = document.getElementById('galCount');
 
+  /* A stack card carries its pieces in a hidden .stack-items block. */
+  function stackItems(fig) {
+    var out = [];
+    Array.prototype.forEach.call(
+      fig.querySelectorAll('.stack-items [data-img], .stack-items [data-video]'),
+      function (n) {
+        out.push({
+          video: n.getAttribute('data-video') || '',
+          src: n.getAttribute('data-img') || '',
+          title: n.getAttribute('data-title') || '',
+          sub: n.getAttribute('data-sub') || '',
+          desc: n.getAttribute('data-desc') || '',
+          alt: n.getAttribute('data-alt') || '',
+          url: n.getAttribute('data-url') || ''
+        });
+      });
+    return out;
+  }
+
+  function pieceCount(fig) {
+    return stackItems(fig).length || 1;
+  }
+
+  function setCount(pieces, stacks) {
+    if (countEl) countEl.textContent = pieces + ' pieces · ' + stacks + ' stacks · 2021—2026';
+  }
+
   function applyFilter(cat) {
-    var shown = 0;
+    var shown = 0, pieces = 0;
     tiles.forEach(function (t) {
       var match = (cat === 'all' || t.getAttribute('data-cat') === cat);
       t.hidden = !match;
-      if (match) shown++;
+      if (match) { shown++; pieces += pieceCount(t); }
     });
     empty.setAttribute('data-show', shown === 0 ? 'true' : 'false');
-    if (countEl) countEl.textContent = (cat === 'all' ? tiles.length : shown) + ' pieces · 2021—2026';
+    setCount(pieces, shown);
     chips.forEach(function (c) {
       c.setAttribute('aria-pressed', c.getAttribute('data-filter') === cat ? 'true' : 'false');
     });
-    track('filter_use', { filter: cat, results: shown });
+    track('filter_use', { filter: cat, results: shown, pieces: pieces });
   }
 
   chips.forEach(function (c) {
@@ -1973,32 +1972,46 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
   var items = [];
   var index = 0;
 
+  function cardItem(card) {
+    var img = card.querySelector('img');
+    return {
+      video: card.getAttribute('data-video') || '',
+      src: card.getAttribute('data-img') || (img ? img.currentSrc || img.src : ''),
+      title: card.getAttribute('data-title') || '',
+      sub: card.getAttribute('data-sub') || '',
+      desc: card.getAttribute('data-desc') || '',
+      alt: img ? img.alt || '' : '',
+      url: card.getAttribute('data-url') || ''
+    };
+  }
+
   function render() {
-    var el = items[index];
-    if (!el) return;
+    var item = items[index];
+    if (!item) return;
     stage.innerHTML = '';
-    if (el.getAttribute('data-video')) {
+    if (item.video) {
       var v = document.createElement('video');
-      v.src = el.getAttribute('data-video');
+      v.poster = item.video.replace(/\.mp4$/, '-poster.webp');
       v.controls = true; v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true;
+      [['.webm', 'video/webm'], ['.mp4', 'video/mp4']].forEach(function (fmt) {
+        var s = document.createElement('source');
+        s.src = item.video.replace(/\.mp4$/, fmt[0]);
+        s.type = fmt[1];
+        v.appendChild(s);
+      });
       stage.appendChild(v);
       track('video_play', { video_id: 'buyit-billboard-ad' });
     } else {
-      var src = el.getAttribute('data-img');
-      var alt = '';
-      var inner = el.querySelector('img');
-      if (!src && inner) src = inner.currentSrc || inner.src;
-      if (inner) alt = inner.alt || '';
       var img = document.createElement('img');
-      img.src = src || '';
-      img.alt = alt;
+      img.src = item.src;
+      img.alt = item.alt || item.title;
       stage.appendChild(img);
     }
-    lbTitle.innerHTML = el.getAttribute('data-title') || '';
-    lbMeta.textContent = el.getAttribute('data-sub') || '';
-    lbDesc.textContent = el.getAttribute('data-desc') || '';
-    var url = el.getAttribute('data-url');
-    if (url) { lbLink.href = url; lbLink.hidden = false; } else { lbLink.hidden = true; }
+    lbTitle.textContent = item.title;
+    lbMeta.textContent = item.sub;
+    lbDesc.textContent = item.desc;
+    if (item.url) { lbLink.href = item.url; lbLink.hidden = false; }
+    else { lbLink.hidden = true; }
     lbCount.textContent = items.length > 1 ? (index + 1) + ' / ' + items.length : '';
     lbPrev.style.visibility = items.length > 1 ? 'visible' : 'hidden';
     lbNext.style.visibility = items.length > 1 ? 'visible' : 'hidden';
@@ -2009,9 +2022,10 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
     });
   }
 
-  function open(el, list) {
+  function open(list, start) {
+    if (!list || !list.length) return;
     items = list;
-    index = items.indexOf(el);
+    index = start || 0;
     render();
     if (typeof lb.showModal === 'function') lb.showModal();
     else lb.setAttribute('open', '');
@@ -2025,14 +2039,11 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
 
   tiles.forEach(function (t) {
     var btn = t.querySelector('.tile-btn');
-    btn.addEventListener('click', function () {
-      open(btn, tiles.filter(function (x) { return !x.hidden; })
-                    .map(function (x) { return x.querySelector('.tile-btn'); }));
-    });
+    btn.addEventListener('click', function () { open(stackItems(t)); });
   });
 
   Array.prototype.slice.call(document.querySelectorAll('.p-card[data-img]')).forEach(function (c) {
-    c.addEventListener('click', function () { open(c, [c]); });
+    c.addEventListener('click', function () { open([cardItem(c)]); });
   });
 
   lbPrev.addEventListener('click', function () { step(-1); });
@@ -2188,6 +2199,64 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
       });
     } else if (leadFallback) {
       leadFallback.hidden = false;
+    }
+
+    /* ─────────── 2026 PACKAGE SHEET CAPTURE ───────────
+       One email field, posted to the same Formspree form as the enquiry and
+       tagged by its _subject and request fields. Formspree has no auto-reply
+       here, so the sheet itself is revealed as a download only after a
+       successful post rather than promised by email. It is deliberately not
+       routed through the Turnstile relay: the relay only accepts a completed
+       enquiry (name, message, token). */
+    var sheetCapture = document.getElementById('sheetCapture');
+    if (sheetCapture) {
+      var sheetForm = document.getElementById('sheetForm');
+      var sheetStatus = document.getElementById('sheetStatus');
+      var sheetFallback = document.getElementById('sheetFallback');
+      var sheetSubmit = sheetForm.querySelector('[type="submit"]');
+      var sheetDownload = document.getElementById('sheetDownload');
+
+      if (isAllowedUrl(formEndpoint)) {
+        sheetCapture.hidden = false;
+        sheetForm.action = formEndpoint;
+
+        sheetForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var honeypot = sheetForm.querySelector('[name="_gotcha"]');
+          if (honeypot && honeypot.value) { sheetForm.reset(); return; }
+
+          sheetSubmit.disabled = true;
+          sheetStatus.removeAttribute('data-state');
+          sheetStatus.textContent = 'Sending the package sheet…';
+          fetch(formEndpoint, {
+            method: 'POST',
+            body: new FormData(sheetForm),
+            headers: { Accept: 'application/json' }
+          }).then(function (response) {
+            if (!response.ok) {
+              var failure = new Error('Sheet request failed');
+              failure.status = response.status;
+              throw failure;
+            }
+            sheetForm.dataset.state = 'sent';
+            sheetStatus.textContent = 'Thank you — the 2026 package sheet is ready.';
+            sheetDownload.hidden = false;
+            sheetDownload.focus();
+            track('generate_lead', { method: 'form', cta_location: 'package_sheet' });
+          }).catch(function (error) {
+            sheetStatus.dataset.state = 'error';
+            sheetStatus.textContent = error && error.status === 429
+              ? 'That is a few too many requests in a row. Please wait a minute and try again.'
+              : 'Sorry, that did not send. You can still download the sheet below.';
+            // The sheet is not worth losing to a failed request.
+            sheetDownload.hidden = false;
+          }).finally(function () {
+            sheetSubmit.disabled = false;
+          });
+        });
+      } else if (sheetFallback) {
+        sheetFallback.hidden = false;
+      }
     }
   }
 
