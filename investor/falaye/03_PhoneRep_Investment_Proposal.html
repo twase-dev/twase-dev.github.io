@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhoneRep — Investment Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 13mm 14mm 12mm; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root{ --ink:#141414; --terra:#C4602A; --forest:#1E3D2F; --gold:#C9A84C; --warm:#F2EDE5; --mid:#6B6B6B; --line:#DDD7CC; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family:'DM Sans', system-ui, sans-serif; font-size:10.5pt; line-height:1.55; color:var(--ink); background:#E7E3DC; }
+.sheet { max-width:182mm; margin:0 auto; background:#fff; }
+h1,h2,h3,.brand-name,.kpi b { font-family:'Syne', sans-serif; }
+.band { background:var(--ink); color:#fff; padding:12mm 12mm 9mm; display:flex; gap:8mm; align-items:flex-start; justify-content:space-between; }
+.brand { display:flex; align-items:center; gap:5mm; }
+.band img { height:13mm; width:auto; display:block; }
+.brand-name { font-size:10.5pt; font-weight:700; letter-spacing:.18em; text-transform:uppercase; line-height:1.35; }
+.brand-sub { font-size:6.8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-top:1mm; }
+.doc-label { text-align:right; font-size:6.8pt; letter-spacing:.18em; text-transform:uppercase; color:#B9B2A6; line-height:2; }
+.body { padding:0 12mm 10mm; }
+.kicker { font-size:7.2pt; letter-spacing:.24em; text-transform:uppercase; color:var(--terra); font-weight:700; margin-top:9mm; }
+h1 { font-size:24pt; line-height:1.08; letter-spacing:-.02em; font-weight:700; margin:2.5mm 0 4mm; }
+.lead { font-size:11.5pt; line-height:1.5; color:#2B2B2B; max-width:165mm; }
+h2 { font-size:10.5pt; letter-spacing:.13em; text-transform:uppercase; font-weight:700; margin:9mm 0 3mm; padding-bottom:2mm; border-bottom:1.2pt solid var(--gold); break-after:avoid; }
+h3 { font-size:9.8pt; font-weight:700; margin:5mm 0 1.5mm; break-after:avoid; }
+p { margin:0 0 2.5mm; }
+ul { margin:0 0 3mm 4.5mm; }
+li { margin-bottom:1.2mm; }
+table { width:100%; border-collapse:collapse; font-size:8.4pt; margin:2mm 0 4mm; }
+th { background:var(--ink); color:#fff; text-align:left; padding:2.2mm 2.6mm; font-weight:500; letter-spacing:.06em; text-transform:uppercase; font-size:7pt; }
+td { padding:2.1mm 2.6mm; border-bottom:.6pt solid var(--line); vertical-align:top; }
+tr:nth-child(even) td { background:#FBFAF7; }
+.num { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.total td { font-weight:700; background:var(--warm) !important; border-top:1pt solid var(--ink); }
+.kpi { display:flex; gap:4mm; margin:6mm 0 2mm; }
+.kpi div { flex:1; border-top:2pt solid var(--terra); padding-top:2.5mm; }
+.kpi b { display:block; font-size:15pt; line-height:1.1; letter-spacing:-.01em; }
+.kpi span { display:block; font-size:6.8pt; letter-spacing:.13em; text-transform:uppercase; color:var(--mid); margin-top:1.5mm; line-height:1.5; }
+.note { background:var(--warm); padding:4mm 5mm; border-left:2pt solid var(--terra); font-size:8.7pt; margin:3mm 0 4mm; break-inside:avoid; }
+.small { font-size:7.9pt; color:var(--mid); line-height:1.5; }
+.foot { border-top:.6pt solid var(--line); margin-top:8mm; padding-top:2.5mm; display:flex; justify-content:space-between; gap:6mm; font-size:6.8pt; letter-spacing:.09em; text-transform:uppercase; color:var(--mid); }
+.pb { break-before:page; }
+.sec { break-inside:avoid; }
+@media print { html, body { background:#fff; } .sheet { max-width:none; margin:0; } }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="band">
+    <div class="brand">
+      <img src="../TD_Logo_2025.png" alt="ToluwaDesigns">
+      <div>
+        <div class="brand-name">Toluwa<br>Designs</div>
+        <div class="brand-sub">Studio · Lagos</div>
+      </div>
+    </div>
+    <div class="doc-label">PhoneRep<br>Investment proposal<br>03 of 04</div>
+  </div>
+
+  <div class="body">
+
+    <div class="kicker">Venture 02 · Pre-seed</div>
+    <h1>PhoneRep<br>A representative in a market that has none.</h1>
+    <p class="lead">A two-sided marketplace for phone repair in Lagos: verified technicians, transparent quotes, and payment held in escrow until the customer confirms the phone works. The platform takes 15% of each completed repair and never employs a technician or opens a shop of its own.</p>
+
+    <div class="kpi">
+      <div><b>15%</b><span>Commission on each<br>completed repair</span></div>
+      <div><b>₦3,000</b><span>Platform contribution<br>on a ₦20,000 repair</span></div>
+      <div><b>~467</b><span>Repairs a month<br>to break even</span></div>
+      <div><b>₦12m</b><span>Pre-seed for 16.7%<br>₦60m pre-money</span></div>
+    </div>
+
+    <h2>The problem</h2>
+    <p>Fixing a phone in Lagos is a trust exercise with no referee. The customer walks into a cluster of shops, is quoted a price that changes once the device is open, is rarely given a written warranty, and has no way to know whether the screen fitted is the one they paid for. When the phone fails again a fortnight later, the conversation starts from zero and the shop has the phone.</p>
+    <p>The technician's side is no better. A competent repairer in a market of hundreds competes with people who underquote and substitute parts, spends money on a shop location to be found, and has no portable record of the work they have done well. The good ones are indistinguishable from the bad ones until it is too late.</p>
+    <p>This is not a demand problem. It is an accountability problem, and accountability is a software problem before it is a repair problem.</p>
+
+    <h2>The model</h2>
+    <ul>
+      <li><strong>Aggregator, not repairer.</strong> No in-house technicians, no physical hub at launch. PhoneRep is the intermediary: it vets the supply, holds the money, and stands behind the job.</li>
+      <li><strong>Escrow by default.</strong> The customer pays into the platform. The technician is paid after the customer confirms the repair. If the job fails, the platform mediates before anything is released.</li>
+      <li><strong>Upfront quotes.</strong> The customer describes the device and the fault; technicians return comparable quotes. The accepted quote is the price, not a starting position.</li>
+      <li><strong>Three-tier vetting.</strong> A digital application filter, a technical evaluation with an engineering advisor, and a signed service-level agreement with cancellation penalties. No walk-ins.</li>
+      <li><strong>A track record that travels.</strong> Ratings and completed-job counts belong to the technician, not to a shop front — which is the incentive that keeps quality up.</li>
+      <li><strong>A deliberate disclaimer.</strong> PhoneRep is an aggregator. It mediates and it guarantees process, not the physical device forever. That distinction is written into the terms before the first repair.</li>
+    </ul>
+
+    <h2 style="margin-top:7mm">How the money is made</h2>
+    <p>One primary engine, three optional ones later.</p>
+    <table>
+      <thead><tr><th style="width:30%">Stream</th><th style="width:24%">Rate</th><th>Worked example</th></tr></thead><tbody>
+      <tr><td><strong>Platform commission</strong></td><td>15% of each completed repair</td><td>Customer pays ₦20,000 for a screen replacement. PhoneRep keeps ₦3,000, releases ₦17,000 to the technician on confirmed satisfaction.</td></tr>
+      <tr><td>Priority listing</td><td>Post-MVP</td><td>Vendors pay for prominence in a category where they are strong.</td></tr>
+      <tr><td>Parts supplier placement</td><td>Post-MVP</td><td>Premium parts brands advertise inside the quote flow.</td></tr>
+      <tr><td>Failure and parts data</td><td>Post-MVP</td><td>Anonymised component failure rates sold to suppliers and insurers, once volume exists.</td></tr>
+    </tbody></table>
+
+    <h3>Unit economics</h3>
+    <table>
+      <thead><tr><th style="width:52%">Line</th><th class="num">Value</th></tr></thead><tbody>
+      <tr><td>Blended average repair value</td><td class="num">₦20,000</td></tr>
+      <tr><td>Platform commission</td><td class="num">₦3,000</td></tr>
+      <tr><td>Monthly fixed operating cost</td><td class="num">₦1,400,000</td></tr>
+      <tr><td>Break-even volume</td><td class="num">≈467 repairs / month</td></tr>
+      <tr><td>Break-even timing at plan</td><td class="num">Month 8–9 of operations</td></tr>
+      <tr><td>Year-one completed repairs</td><td class="num">5,000+</td></tr>
+      <tr><td>Year-one gross transaction value</td><td class="num">₦100,000,000+</td></tr>
+      <tr><td>Year-one platform revenue</td><td class="num">₦15,000,000+</td></tr>
+    </tbody></table>
+    <p class="small">Fixed cost covers a small core team, baseline customer acquisition, hosting and transactional messaging. Sensitivity: if costs run 20% higher than planned, break-even moves to about 560 repairs a month; if the average ticket falls to ₦15,000, it moves to roughly 620. Both are survivable at the volumes this plan targets, but neither is comfortable — which is why the pilot is measured on completed repairs rather than sign-ups.</p>
+
+    <div class="note">
+      <strong>Why a 15% take rate holds.</strong> The technician gives up 15% and receives qualified demand, a booking and invoicing system, a verified digital storefront and guaranteed payout. That is cheaper than a shop front in Computer Village and it is priced against the alternative, not against nothing.
+    </div>
+
+    <h2>Revised timeline</h2>
+    <p style="break-after:avoid;break-inside:avoid">The original blueprint carried 2025 dates. They are superseded by the calendar below, which starts from a December 2026 mobilisation and runs twelve months. Nothing has been built yet, so this calendar is the plan of record.</p>
+    <table>
+      <thead><tr><th style="width:18%">Period</th><th style="width:30%">Milestone</th><th>Detail</th></tr></thead><tbody>
+      <tr><td>Dec 2026</td><td>Mobilise</td><td>CAC incorporation, trademark filing for the name and marks, domain and brand kit, waitlist landing page live, engineering advisor appointed.</td></tr>
+      <tr><td>Jan 2027</td><td>Build and recruit</td><td>MVP: issue intake, quote comparison, technician profiles, escrow checkout via Paystack or Flutterwave. Twenty to thirty founding technicians through the vetting funnel.</td></tr>
+      <tr><td>Feb 2027</td><td>Closed pilot</td><td>Fifty completed repairs with friends, family and referred customers. Fix what breaks. No public marketing.</td></tr>
+      <tr><td>Mar 2027</td><td>Public launch</td><td>Mainland Lagos launch. Target 100 completed repairs in the first month. Publish the guarantee and mediation process.</td></tr>
+      <tr><td>Apr–Jun 2027</td><td>Density</td><td>250 repairs a month; add Island coverage; introduce the warranty reserve; first retention measurement.</td></tr>
+      <tr><td>Jul–Sep 2027</td><td>Break-even run-rate</td><td>467+ repairs a month; contribution positive before central costs; technician retention above 70%.</td></tr>
+      <tr><td>Oct–Nov 2027</td><td>Decide the next shape</td><td>₦10m+ monthly transaction value; decide whether a first accredited repair centre is justified or whether the asset-light model should simply be deepened.</td></tr>
+    </tbody></table>
+
+    <div class="pb"></div>
+    <h2>The ask</h2>
+    <p><strong>₦12,000,000 for 16.7% of PhoneRep, at a ₦60,000,000 pre-money valuation.</strong> Because nothing is built, the money is released in three tranches and the second is the one that matters: it is not paid until the pilot has produced measurable repairs.</p>
+    <table>
+      <thead><tr><th style="width:14%">Tranche</th><th class="num" style="width:12%">Amount</th><th style="width:38%">Released when</th><th>Held back if</th></tr></thead><tbody>
+      <tr><td>One</td><td class="num">₦4,500,000</td><td>On signature. CAC, trademark, landing page, MVP build, technician recruitment.</td><td>Nothing — this is the money genuinely at risk.</td></tr>
+      <tr><td>Two</td><td class="num">₦4,500,000</td><td>90-day gate: 30 vetted technicians, 100 completed repairs, average customer rating of at least 4.3 out of 5, escrow releasing without dispute above 95% of jobs.</td><td>Completed repairs below 100, or unresolved disputes above 5%.</td></tr>
+      <tr><td>Three</td><td class="num">₦3,000,000</td><td>Month six: 250 completed repairs in a month and positive contribution before central costs.</td><td>Volume stalls below 180 a month, or take rate has to be discounted to hold supply.</td></tr>
+    </tbody></table>
+
+    <h3>Use of funds</h3>
+    <table>
+      <thead><tr><th style="width:46%">Allocation</th><th class="num" style="width:16%">Amount</th><th class="num" style="width:10%">Share</th><th>Detail</th></tr></thead><tbody>
+      <tr><td>Platform and technical infrastructure</td><td class="num">₦2,500,000</td><td class="num">21%</td><td>MVP build, escrow integration, hosting, messaging, device and fault database.</td></tr>
+      <tr><td>Market acquisition and vendor onboarding</td><td class="num">₦4,500,000</td><td class="num">37%</td><td>Technician recruitment and vetting, founding-user incentives, targeted Lagos acquisition, referral credits.</td></tr>
+      <tr><td>Core team and operations</td><td class="num">₦3,000,000</td><td class="num">25%</td><td>Part-time operations lead, engineering advisor, customer mediation, pilot support.</td></tr>
+      <tr><td>Legal, compliance and working capital</td><td class="num">₦2,000,000</td><td class="num">17%</td><td>CAC and trademark, two-sided terms and technician SLA, escrow and liability wording, dispute reserve.</td></tr>
+      <tr class="total"><td>Total</td><td class="num">₦12,000,000</td><td class="num">100%</td><td>Twelve months to a measured Lagos business.</td></tr>
+    </tbody></table>
+
+    <h3>Tickets available</h3>
+    <table>
+      <thead><tr><th>Amount</th><th class="num">Equity</th><th>Rights</th></tr></thead><tbody>
+      <tr><td>₦3,000,000</td><td class="num">4.2%</td><td>Monthly report, pilot-gate reporting, pro-rata.</td></tr>
+      <tr><td>₦6,000,000</td><td class="num">8.3%</td><td>Monthly report, quarterly call, pro-rata, tag-along.</td></tr>
+      <tr><td>₦12,000,000</td><td class="num">16.7%</td><td>The full pre-seed. You decide whether each tranche is released against its gate.</td></tr>
+    </tbody></table>
+
+    <h2>Risks</h2>
+    <table>
+      <thead><tr><th style="width:26%">Risk</th><th style="width:34%">Why it is real</th><th>Mitigation</th></tr></thead><tbody>
+      <tr><td><strong>Supply quality</strong></td><td>The platform's reputation is the technicians'. One botched board repair is a public story.</td><td>Three-tier vetting, a technical evaluation before onboarding, a warranty reserve funded from the take rate, and removal after two upheld disputes.</td></tr>
+      <tr><td><strong>Escrow fraud and disputes</strong></td><td>Both sides can game a held payment: a customer who will not confirm, a technician who will not return a device.</td><td>Time-bound auto-release with an inspection window, photo evidence at handover, and a named mediator with written rules in the SLA.</td></tr>
+      <tr><td><strong>Counterfeit parts</strong></td><td>Cheap screens are the most common way a repair fails.</td><td>Parts declared in the quote, supplier verification for listed vendors, and a customer-visible parts tier.</td></tr>
+      <tr><td><strong>Cold-start liquidity</strong></td><td>A marketplace with no technicians cannot serve customers, and with no customers cannot keep technicians.</td><td>Launch one corridor at a time with 20–30 technicians, seed demand through referrals, and measure completed repairs rather than sign-ups.</td></tr>
+      <tr><td><strong>Regulatory and payments</strong></td><td>Holding customer money invites scrutiny, and payment providers can restrict an account mid-pilot.</td><td>Use a licensed provider's escrow or split-payment product rather than holding balances directly; legal review of the terms before launch.</td></tr>
+      <tr><td><strong>Key person</strong></td><td>This is currently one founder and a document.</td><td>Operations lead funded in tranche one; engineering advisor named before build starts; runbooks for vetting and mediation.</td></tr>
+    </tbody></table>
+
+    <div class="note">
+      <strong>The one-sentence version.</strong> PhoneRep is a documented plan with defensible unit economics and no code yet — so the first ₦4.5m buys a working pilot, and the remaining ₦7.5m is only spent if a hundred real repairs say the model works.
+    </div>
+
+    <div class="foot">
+      <div>ToluwaDesigns · Lagos, Nigeria · +234 806 936 0887 · toluwaseogunsola@gmail.com</div>
+      <div>03 / PhoneRep</div>
+    </div>
+    <p class="small" style="margin-top:5mm">Unit economics and year-one targets are internal planning estimates from the PhoneRep product blueprint, not audited projections, and are sensitive to average ticket size, technician supply and payment-provider fees. Subject to a written agreement, company incorporation and independent legal review.</p>
+
+  </div>
+</div>
+</body>
+</html>

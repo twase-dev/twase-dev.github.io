@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — ToluwaDesigns</title>
+<meta name="description" content="That page has moved or never existed. Head back to the work, the packages, or message Toluwase directly.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D0D0D;--terra:#C4602A;--gold:#C9A84C;--warm:#F2EDE5;
+  --display:'Syne',system-ui,sans-serif;--sans:'DM Sans',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  background:var(--ink);color:#fff;font-family:var(--sans);font-weight:300;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+  padding:clamp(28px,6vw,72px)
+}
+body::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:60px 60px
+}
+body::after{
+  content:'';position:absolute;top:-220px;right:-200px;width:720px;height:720px;
+  background:radial-gradient(circle,rgba(196,96,42,.18) 0%,transparent 66%);pointer-events:none
+}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;width:100%}
+.logo{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;margin-bottom:clamp(40px,8vw,72px)}
+.logo img{width:30px;height:30px;border-radius:7px}
+.logo b{font-family:var(--display);font-size:17.5px;font-weight:700;letter-spacing:.02em}
+.logo b span{color:var(--terra)}
+.code{
+  font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:.94;
+  font-size:clamp(74px,16vw,148px);color:var(--terra);margin-bottom:18px
+}
+h1{
+  font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.05;
+  font-size:clamp(26px,4.2vw,42px);margin-bottom:18px
+}
+p{max-width:52ch;color:rgba(255,255,255,.6);font-size:15.5px}
+p b{color:rgba(255,255,255,.86);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  font-size:11.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
+  padding:14px 26px;transition:background .3s ease,color .3s ease,opacity .3s ease
+}
+.btn-primary{background:var(--terra);color:#fff}
+.btn-primary:hover{opacity:.86}
+.btn-ghost{color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.links{
+  display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:clamp(38px,6vw,58px);
+  padding-top:24px;border-top:1px solid rgba(255,255,255,.1)
+}
+.links a{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s ease
+}
+.links a:hover{color:var(--gold)}
+.foot{margin-top:26px;font-size:11.5px;color:rgba(255,255,255,.34)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="logo" href="/" aria-label="ToluwaDesigns — home">
+    <img src="/assets/td-icon-inverse-128.png" alt="" width="30" height="30">
+    <b>Toluwa<span>Designs</span></b>
+  </a>
+
+  <p class="code" aria-hidden="true">404</p>
+  <h1>This page isn’t on the wall.</h1>
+  <p>
+    The link has moved, or it never existed. <b>Nothing is lost</b> — the work,
+    the packages and the way to reach me are all one click away.
+  </p>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="/">Back to the site <span aria-hidden="true">→</span></a>
+    <a class="btn btn-ghost" href="https://wa.me/2348069360887?text=Hi%20Toluwase%2C%20I%20hit%20a%20404%20on%20your%20site%20and%20wanted%20to%20reach%20you"
+       target="_blank" rel="noopener">Message on WhatsApp</a>
+  </div>
+
+  <nav class="links" aria-label="Site sections">
+    <a href="/#work">Selected work</a>
+    <a href="/#services">Packages</a>
+    <a href="/#process">Process</a>
+    <a href="/#about">About</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+
+  <p class="foot">
+    ToluwaDesigns · Ikosi, Ketu, Lagos ·
+    <a href="mailto:toluwadesigns@gmail.com" style="color:rgba(255,255,255,.55)">toluwadesigns@gmail.com</a>
+  </p>
+</main>
+</body>
+</html>

@@ -54,7 +54,7 @@
       "image": "https://twase-dev.github.io/assets/og-toluwa-designs.png",
       "logo": "https://twase-dev.github.io/assets/td-icon-512.png",
       "description": "Lagos-based brand identity and web design studio building identity systems, websites and packaging for growing businesses.",
-      "email": "wealthyteetoj@gmail.com",
+      "email": "toluwadesigns@gmail.com",
       "telephone": "+2348069360887",
       "priceRange": "₦₦",
       "currenciesAccepted": "NGN",
@@ -718,6 +718,37 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
   .js .reveal{opacity:1;transform:none}
 }
+
+/* ══════════════ DEPOSIT + STICKY CTA ══════════════ */
+.pkg-pay{display:flex;flex-direction:column;gap:5px;margin-top:14px}
+.pkg-pay a{
+  align-self:flex-start;font-size:11px;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--terra);padding-bottom:2px;
+  border-bottom:1px solid rgba(196,96,42,.35);
+  transition:color var(--ease),border-color var(--ease)
+}
+.pkg-pay a:hover{color:var(--ink);border-color:var(--ink)}
+.pkg-pay span{font-size:11px;line-height:1.5;color:var(--mid)}
+.package--featured .pkg-pay a{color:var(--gold);border-color:rgba(201,168,76,.45)}
+.package--featured .pkg-pay a:hover{color:#fff;border-color:#fff}
+.package--featured .pkg-pay span{color:rgba(255,255,255,.5)}
+
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:180;display:none;gap:10px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(13,13,13,.96);border-top:1px solid rgba(255,255,255,.12);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  transform:translateY(115%);transition:transform .35s cubic-bezier(.16,1,.3,1)
+}
+.sticky-cta[data-show="true"]{transform:none}
+.sticky-cta a{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:11px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;padding:13px 8px
+}
+.sticky-cta .sc-primary{background:var(--terra);color:#fff}
+.sticky-cta .sc-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+@media (max-width:820px){.sticky-cta{display:flex}}
+@media (prefers-reduced-motion:reduce){.sticky-cta{transition:none}}
 
 /* ══════════════ RESPONSIVE ══════════════ */
 @media (max-width:1080px){
@@ -1423,6 +1454,14 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
              data-lead="whatsapp" data-cta-location="package" data-package="Launchpad">
             Start Yours <span class="arw" aria-hidden="true">→</span>
           </a>
+          <p class="pkg-pay">
+            <a href="https://wa.me/2348069360887?text=Hi%2C%20I%27d%20like%20to%20reserve%20the%20Launchpad%20package%20with%20the%20%E2%82%A6100k%20deposit"
+               data-deposit="launchpad" data-lead="deposit"
+               data-cta-location="package_deposit" data-package="Launchpad">
+              Pay ₦100k deposit
+            </a>
+            <span>Card, transfer or USSD · 50% balance before launch</span>
+          </p>
         </div>
 
         <div class="package package--featured reveal">
@@ -1447,6 +1486,14 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
              data-lead="whatsapp" data-cta-location="package" data-package="Brand Presence">
             Start Yours <span class="arw" aria-hidden="true">→</span>
           </a>
+          <p class="pkg-pay">
+            <a href="https://wa.me/2348069360887?text=Hi%2C%20I%27d%20like%20to%20reserve%20the%20Brand%20Presence%20package%20with%20the%20%E2%82%A6225k%20deposit"
+               data-deposit="presence" data-lead="deposit"
+               data-cta-location="package_deposit" data-package="Brand Presence">
+              Pay ₦225k deposit
+            </a>
+            <span>Card, transfer or USSD · 50% balance before launch</span>
+          </p>
         </div>
 
         <div class="package reveal">
@@ -1471,6 +1518,14 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
              data-lead="whatsapp" data-cta-location="package" data-package="Flagship">
             Start Yours <span class="arw" aria-hidden="true">→</span>
           </a>
+          <p class="pkg-pay">
+            <a href="https://wa.me/2348069360887?text=Hi%2C%20I%27d%20like%20to%20reserve%20the%20Flagship%20package%20with%20the%20%E2%82%A6500k%20deposit"
+               data-deposit="flagship" data-lead="deposit"
+               data-cta-location="package_deposit" data-package="Flagship">
+              Pay ₦500k deposit
+            </a>
+            <span>Card, transfer or USSD · 50% balance before launch</span>
+          </p>
         </div>
 
       </div>
@@ -1673,7 +1728,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
           </svg>
           Chat on WhatsApp
         </a>
-        <a href="mailto:wealthyteetoj@gmail.com?subject=Project%20enquiry%20%E2%80%94%20ToluwaDesigns"
+        <a href="mailto:toluwadesigns@gmail.com?subject=Project%20enquiry%20%E2%80%94%20ToluwaDesigns"
            class="btn btn-light" data-lead="email" data-cta-location="contact">
           Send an Email
         </a>
@@ -1712,7 +1767,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
       <p class="lf-fallback" id="leadFallback" hidden>
         The enquiry form opens once its verification service is connected. In the meantime,
         <a href="https://wa.me/2348069360887?text=Hi%20Toluwase%2C%20I%27d%20like%20to%20start%20a%20project" target="_blank" rel="noopener" data-lead="whatsapp" data-cta-location="contact_fallback">WhatsApp me</a>
-        or <a href="mailto:wealthyteetoj@gmail.com?subject=Project%20enquiry%20%E2%80%94%20ToluwaDesigns" data-lead="email" data-cta-location="contact_fallback">send an email</a>.
+        or <a href="mailto:toluwadesigns@gmail.com?subject=Project%20enquiry%20%E2%80%94%20ToluwaDesigns" data-lead="email" data-cta-location="contact_fallback">send an email</a>.
       </p>
 
       <div class="sheet-capture" id="sheetCapture" hidden>
@@ -1751,6 +1806,18 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
   </section>
 
 </main>
+
+
+<!-- ══════════════ STICKY MOBILE CTA ══════════════ -->
+<div class="sticky-cta" id="stickyCta" data-show="false">
+  <a class="sc-primary"
+     href="https://wa.me/2348069360887?text=Hi%20Toluwase%2C%20I%27d%20like%20to%20start%20a%20project"
+     target="_blank" rel="noopener"
+     data-lead="whatsapp" data-cta-location="sticky_mobile">
+    Start a project
+  </a>
+  <a class="sc-secondary" href="#services" data-cta-location="sticky_mobile">See prices</a>
+</div>
 
 
 <!-- ══════════════ FOOTER ══════════════ -->
@@ -1800,7 +1867,7 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
         <ul class="f-list">
           <li><a href="https://wa.me/2348069360887" target="_blank" rel="noopener"
                  data-lead="whatsapp" data-cta-location="footer">WhatsApp</a></li>
-          <li><a href="mailto:wealthyteetoj@gmail.com" data-lead="email" data-cta-location="footer">Email</a></li>
+          <li><a href="mailto:toluwadesigns@gmail.com" data-lead="email" data-cta-location="footer">Email</a></li>
           <li><a href="tel:+2348069360887" data-lead="phone" data-cta-location="footer">0806 936 0887</a></li>
           <li><a href="https://maps.google.com/?q=Ikosi+Ketu+Lagos+Nigeria" target="_blank" rel="noopener">Ikosi, Ketu, Lagos</a></li>
         </ul>
@@ -1856,7 +1923,15 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
     // server-side and then forwards to Formspree. Set both to switch over.
     relayEndpoint: '',
     // Public Turnstile site key (safe to publish; the secret stays in the Worker).
-    turnstileSiteKey: ''
+    turnstileSiteKey: '',
+    // One Paystack payment page per tier (Cash-Flow Engine §3.1). Paste each
+    // page's URL here. A tier with no URL keeps its pre-filled WhatsApp deposit
+    // request, so the deposit path never dead-ends.
+    depositUrls: {
+      launchpad: '',
+      presence: '',
+      flagship: ''
+    }
   };
 
   (function initGA() {
@@ -2111,6 +2186,19 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
     track('generate_lead', params);
   });
 
+  /* ─────────── DEPOSIT LINKS ───────────
+     A tier only becomes a payment link once its Paystack page URL is set;
+     otherwise the pre-filled WhatsApp deposit request stays as the fallback. */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-deposit]'), function (a) {
+    var key = a.getAttribute('data-deposit');
+    var url = ((TD_CONFIG.depositUrls && TD_CONFIG.depositUrls[key]) || '').trim();
+    if (!/^https:\/\//.test(url)) return;
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('data-lead', 'paystack');
+  });
+
   /* ─────────── CONTACT FORM ───────────
      The relay Worker is the only way an enquiry can be delivered: it verifies
      the Turnstile token before forwarding anything. With no relay or no site
@@ -2279,6 +2367,17 @@ footer{background:#080808;color:rgba(255,255,255,.62);padding:clamp(48px,6vw,74p
         sheetFallback.hidden = false;
       }
     }
+  }
+
+  /* ─────────── STICKY MOBILE CTA ─────────── */
+  var stickyCta = document.getElementById('stickyCta');
+  if (stickyCta) {
+    var syncSticky = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      stickyCta.setAttribute('data-show', (h > 0 && window.scrollY / h > 0.25) ? 'true' : 'false');
+    };
+    window.addEventListener('scroll', syncSticky, { passive: true });
+    syncSticky();
   }
 
   /* ─────────── SCROLL DEPTH ─────────── */

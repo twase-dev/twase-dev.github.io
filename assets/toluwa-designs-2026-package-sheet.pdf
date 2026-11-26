@@ -1,84 +1,375 @@
-%PDF-1.4
-%“Œ‹ž ReportLab Generated PDF document (opensource)
+%PDF-1.3
+%âãÏÓ
 1 0 obj
 <<
-/F1 2 0 R /F2 3 0 R
+/Producer (pypdf)
+/Author (Toluwase Ogunsola\054 ToluwaDesigns)
 >>
 endobj
 2 0 obj
 <<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+/Type /Pages
+/Count 1
+/Kids [ 4 0 R ]
 >>
 endobj
 3 0 obj
 <<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+/Type /Catalog
+/Pages 2 0 R
 >>
 endobj
 4 0 obj
 <<
-/Contents 8 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 7 0 R /Resources <<
+/Type /Page
+/Resources <<
+/Font <<
+/F1 <<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+>>
+/F2 <<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+>>
+>>
 /ExtGState <<
 /gRLs0 <<
-/ca .34
->> /gRLs1 <<
-/ca 1
->> /gRLs2 <<
-/ca .55
->> /gRLs3 <<
-/CA .13
+/ca 0.34
 >>
->> /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/gRLs1 <<
+/ca 1
+>>
+/gRLs2 <<
+/ca 0.55
+>>
+/gRLs3 <<
+/CA 0.13
+>>
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 595.2756 841.8898 ]
+/Parent 2 0 R
+/Contents 5 0 R
 >>
 endobj
 5 0 obj
 <<
-/PageMode /UseNone /Pages 7 0 R /Type /Catalog
->>
-endobj
-6 0 obj
-<<
-/Author (Toluwase Ogunsola, ToluwaDesigns) /CreationDate (D:20261113121225+01'00') /Creator (anonymous) /Keywords () /ModDate (D:20261113121225+01'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (Packages, prices and delivery windows for 2026) /Title (ToluwaDesigns \204 2026 Package Sheet) /Trapped /False
->>
-endobj
-7 0 obj
-<<
-/Count 1 /Kids [ 4 0 R ] /Type /Pages
->>
-endobj
-8 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2659
+/Length 9131
 >>
 stream
-Gau119lo&K&r,lS'n+c8bcK&455:h^bh.cCnOBch[Sj91b(Z!$$"K.F&nFu<pKIVdU']#7aAFR0)JXCR*rp[-U^2Vb!jVdN$@n$@r,tMZ:m`ean:8De%%!0A+H407$H#*Ynt`YMN(-Z0P:20MP9<TE7fjI@SchWT`\`6s,r&1$"=3,$(jB=\)/m4cmjG_#g+k'Q@`k?@5eAd@;4PW7Je:Xh'L=D[UGSeoi5K5N)$G0m8MY$J:C;>*\K-0F4T>R3J&C>K)s67n:`.'tJFIXtlbhi%ouEO,'PrOU#pN=7BNHW;!DL;dQM4l0_GUmp9EGj'"Ho"ZfJKBYgmu4[FT1eC*r`a`SD]iC^3#irlr$r',?'Jn];rr(6Q(K^We>ms[ae2)Qo6^l+&%R4&>oes<e[JRZ<Y79<V6^k.][*j%%^BBTj;>R0/`Tb)T4AiF\u`3*9:@h[B-j8YRsecCSAQQYHun\[PTim<!CH;D9W%#fhuOO2HlD5CSAG)E$cX$=VnXH-7U_T=i*;Ul;K*2%>?:teKDm2BlDTnCtD2(?`]SI7$DY:1V*PS)^h7'G12-ChAta8n7j"W9fZF[ZgXN,S&)7LZ@?j_&`S!*nHNYD55k@I6kge:>=9_FfR?:%6a^9$Wdq90:*9oD"`pqL>1R9plT2*3J"./lQLYih3r2HCJo89SWW,.]DHb0rb#i$uR'p.TIXhSn_DkA(5%+c9+V2)&To;$BG![&Q#`0FB0_:2H[,runq*m:SL+r]CJ-=A5fGV]D0;3URMV^c=>f5pHgtlDO)k.]cR74Uc@U_Nn;9C=U,;c5-Z<ZPOCn3.H\!^$c:fEd?Z\>J;T%2H"AHt1eq2fic7NV(JN?.QG5fAe;+c7JN-6EjZ"%2'FarKs.5fAdP=#;+]1)u33QCPuq<pTAMg>4StWiWO0%C3(SZH?p]aod48Ym3BdI,K"%J9M2%mMmcS(SN]r%sT)k^uG\$mgKW[3HR]"i%DpPJB-m!rh*jYbFoJgR6`IK-[d+HSpH4ga@@5(#]XKb`6Q1CF:h\4oap`E8'DX"\2,gJkKjs'&\AIl6Hg\((1^Uoi8O5B[&BJeJUCVanR]Z%b:)B))47UKYl%aZedO^U/G/bd&`VO_R'1SpMT1$LL1BbM#uX;oA?rRdN0Vi!BrdPZS7gqW4B()5O0'$MUP(o7S!28MDRc1>_QH)WqtFS\4T%Gd`=oTm52SOti9p=,bP;#7kHn/MHIe27<C2TeN$%Dc3),/k'p"C+;fP-Q7Sgum0=B+O1ee_Da6BUKib?&ns5AFg$.AV*5l29VQt]#%>1:rF1GIUf4@'nC)ecu1LTY<t?VuP&m8omP8c@H*[2_#'nF^(n2U`Rs):i/E3UA*7],n_B*r.kC,GaqEJY>.1$e7[Z9i'rsJ-S5(3o:kn\o[(m`mA"G@mQ0;cG+:>XU:HL42P69\L^$bFY/IQ;);#:3V2p8F/8QDJPeK6Mpb%-9i(6&J;9R:^$cDhg,X7DA(3-KYu!5uPJ=0J]U@<C.aXpd->*DP8o81.('h.BT([6jCHn^fqg/FOFq0h7MpRoap6u)D2*osR)jn$Sk_dB]?%ujo-:n"eP^5*:Y::+Fru,$Wc/Y'Vf<g#?k0Hf>*1qn2"*5NTKMdERoM388^uLAL_S(L\%o:%j_Vc>m`gPeLn5Y\8Y(]"B$C1B5[8\GOW[[+W?`3#^/!_I,qQ#)3a8.=+d;lbn1*4?PQg=0sT@7(#r1rm5c^&l'f>m3X=;VPF.T.7cX.h'?)-mu:dhfSFAst1Z)^1g0ge4p?O_;-Vc!1eR-0%PIHNWY.jBs;L7;,Ckf$2!L?S[XP]f4<P6k3MMBO@JBa4clMH2DVCGjZ"+][:"tFkD\8Fa\ZKSGM6j%&P(9B40ZC_#e`k>14./1Z/;38DJOo"*Y5\d29C:E%Ko]M>QDf9GN8[B#86,F=0:kl(f0de=@1Yh&/NDhA[<?F0I?(K\#eFh$eP46_s.`JRLWqY%S6uAN1Il&DbY#Z>Cc-)O=MX2VIfk%g)":;g:@o'qUGI_Y47DN>r@"'VRBIKf9*$eoZQZ^,HU=jNnX$=JH9p@SQASZJ>O).qN,igZL!iGa6P1!8KdCdq?^/MN>TeJUn>m_'hWcHH0DLhuUm=i828bLW<d:@;l[r"-/GYD"kLNek4P,\UF&Q\ll5e*Xs04;j7e2.:\eflCXQ,[-a[Kr@J'YD-_YI5/Qsq*cLL34a^?&@:/Gk)o;NXVJe!Ch7cnlg+EN*PnXV<i:K^FKmE1&OB'\O&t;MIB6lYsmd)EiV3lm=/7*^68p6l*@\G7Poh)TpPP_FaDOqGl.Uh2B0&$@Q)s+Q;`kd%JQ[(26@<Y-/`ZF_o?6j61h5D66;[M*XjD5""'Rr5p?1!DnrI$P3BchdJEq@f<?J&.e\YXcb)k#kcS'SOCYog,J.<H#Q/7m3C_<WV8OMT'rVHoSpd!9bnFtYEokP#WLLV*H<s'3:Y^Im_e@2jrS5nnh;X8J1lh`um0(rM0K&>j.Ch4fI[aRXYbXbE_(hg[8:9]j/b@I<f=Lg\-ORnSaH\bHpkA\DiUJQ+8aoomhp'L%Ab3SjWZT`=Ab.SVFA<QS/Vr>rBX/(<Cn&0B0fQ+q?k1+:Sa-Q8Q\KVYJZC);THRn`UmY&iD7@"/:,rcUTc7NP>(%i.)$:B~>endstream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+.05098 .05098 .05098 rg
+n 0 0 595.2756 841.8898 re f*
+.768627 .376471 .164706 rg
+n 0 834.8898 595.2756 7 re f*
+BT /F2 21 Tf 25.2 TL ET
+.956863 .937255 .905882 rg
+BT 1 0 0 1 46 779.8898 Tm (TOLUWA) Tj T* ET
+.768627 .376471 .164706 rg
+BT 1 0 0 1 138.148 779.8898 Tm (DESIGNS) Tj T* ET
+BT /F1 7.5 Tf 9 TL ET
+1 1 1 rg
+/gRLs0 gs
+BT 1 0 0 1 467.1581 781.8898 Tm (2026 PACKAGE SHEET) Tj T* ET
+.956863 .937255 .905882 rg
+/gRLs1 gs
+BT /F2 29 Tf 34.8 TL ET
+BT 1 0 0 1 46 723.8898 Tm (Three ways to build) Tj T* ET
+.768627 .376471 .164706 rg
+BT 1 0 0 1 46 689.8898 Tm (something worth sharing.) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+1 1 1 rg
+/gRLs2 gs
+BT 1 0 0 1 46 661.8898 Tm (Brand identity, websites and packaging for growing Lagos businesses.) Tj T* ET
+BT 1 0 0 1 46 646.8898 Tm (Delivered in days, not months.) Tj T* ET
+1 1 1 rg
+/gRLs0 gs
+BT /F1 7.6 Tf 9.12 TL ET
+BT 1 0 0 1 46 603.8898 Tm (ENTRY) Tj T* ET
+.956863 .937255 .905882 rg
+/gRLs1 gs
+BT /F2 17 Tf 20.4 TL ET
+BT 1 0 0 1 46 579.8898 Tm (Launchpad) Tj T* ET
+.768627 .376471 .164706 rg
+BT /F2 15 Tf 18 TL ET
+BT 1 0 0 1 46 556.8898 Tm (NGN 200k+) Tj T* ET
+1 1 1 rg
+/gRLs2 gs
+BT /F1 8.6 Tf 10.32 TL ET
+BT 1 0 0 1 46 539.8898 Tm (From \267 50% deposit to start) Tj T* ET
+1 1 1 rg
+/gRLs0 gs
+BT 1 0 0 1 46 524.8898 Tm (Delivered in 5\2267 business days) Tj T* ET
+.768627 .376471 .164706 rg
+/gRLs1 gs
+n
+233.6 602.8898 m
+233.6 603.7734 232.8837 604.4898 232 604.4898 c
+231.1163 604.4898 230.4 603.7734 230.4 602.8898 c
+230.4 602.0061 231.1163 601.2898 232 601.2898 c
+232.8837 601.2898 233.6 602.0061 233.6 602.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 599.8898 Tm (Single-page website, mobile-first) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 584.8898 m
+233.6 585.7734 232.8837 586.4898 232 586.4898 c
+231.1163 586.4898 230.4 585.7734 230.4 584.8898 c
+230.4 584.0061 231.1163 583.2898 232 583.2898 c
+232.8837 583.2898 233.6 584.0061 233.6 584.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 581.8898 Tm (WhatsApp and contact integration) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 566.8898 m
+233.6 567.7734 232.8837 568.4898 232 568.4898 c
+231.1163 568.4898 230.4 567.7734 230.4 566.8898 c
+230.4 566.0061 231.1163 565.2898 232 565.2898 c
+232.8837 565.2898 233.6 566.0061 233.6 566.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 563.8898 Tm (Social media links) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 548.8898 m
+233.6 549.7734 232.8837 550.4898 232 550.4898 c
+231.1163 550.4898 230.4 549.7734 230.4 548.8898 c
+230.4 548.0061 231.1163 547.2898 232 547.2898 c
+232.8837 547.2898 233.6 548.0061 233.6 548.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 545.8898 Tm (Basic SEO setup) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 530.8898 m
+233.6 531.7734 232.8837 532.4898 232 532.4898 c
+231.1163 532.4898 230.4 531.7734 230.4 530.8898 c
+230.4 530.0061 231.1163 529.2898 232 529.2898 c
+232.8837 529.2898 233.6 530.0061 233.6 530.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 527.8898 Tm (Domain and hosting guidance) Tj T* ET
+1 1 1 RG
+/gRLs3 gs
+.7 w
+n 46 505.8898 m 549.2756 505.8898 l S
+1 1 1 rg
+/gRLs0 gs
+BT /F1 7.6 Tf 9.12 TL ET
+BT 1 0 0 1 46 475.8898 Tm (MOST POPULAR) Tj T* ET
+.956863 .937255 .905882 rg
+/gRLs1 gs
+BT /F2 17 Tf 20.4 TL ET
+BT 1 0 0 1 46 451.8898 Tm (Brand Presence) Tj T* ET
+.768627 .376471 .164706 rg
+BT /F2 15 Tf 18 TL ET
+BT 1 0 0 1 46 428.8898 Tm (NGN 450k+) Tj T* ET
+1 1 1 rg
+/gRLs2 gs
+BT /F1 8.6 Tf 10.32 TL ET
+BT 1 0 0 1 46 411.8898 Tm (From \267 50% deposit to start) Tj T* ET
+1 1 1 rg
+/gRLs0 gs
+BT 1 0 0 1 46 396.8898 Tm (Delivered in 10\22614 business days) Tj T* ET
+.768627 .376471 .164706 rg
+/gRLs1 gs
+n
+233.6 474.8898 m
+233.6 475.7734 232.8837 476.4898 232 476.4898 c
+231.1163 476.4898 230.4 475.7734 230.4 474.8898 c
+230.4 474.0061 231.1163 473.2898 232 473.2898 c
+232.8837 473.2898 233.6 474.0061 233.6 474.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 471.8898 Tm (Multi-page website \(up to 6 pages\)) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 456.8898 m
+233.6 457.7734 232.8837 458.4898 232 458.4898 c
+231.1163 458.4898 230.4 457.7734 230.4 456.8898 c
+230.4 456.0061 231.1163 455.2898 232 455.2898 c
+232.8837 455.2898 233.6 456.0061 233.6 456.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 453.8898 Tm (Custom brand design system) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 438.8898 m
+233.6 439.7734 232.8837 440.4898 232 440.4898 c
+231.1163 440.4898 230.4 439.7734 230.4 438.8898 c
+230.4 438.0061 231.1163 437.2898 232 437.2898 c
+232.8837 437.2898 233.6 438.0061 233.6 438.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 435.8898 Tm (Product or service showcase) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 420.8898 m
+233.6 421.7734 232.8837 422.4898 232 422.4898 c
+231.1163 422.4898 230.4 421.7734 230.4 420.8898 c
+230.4 420.0061 231.1163 419.2898 232 419.2898 c
+232.8837 419.2898 233.6 420.0061 233.6 420.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 417.8898 Tm (Booking or enquiry form) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 402.8898 m
+233.6 403.7734 232.8837 404.4898 232 404.4898 c
+231.1163 404.4898 230.4 403.7734 230.4 402.8898 c
+230.4 402.0061 231.1163 401.2898 232 401.2898 c
+232.8837 401.2898 233.6 402.0061 233.6 402.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 399.8898 Tm (Full SEO setup, 2 revision rounds) Tj T* ET
+1 1 1 RG
+.7 w
+n 46 377.8898 m 549.2756 377.8898 l S
+1 1 1 rg
+/gRLs0 gs
+BT /F1 7.6 Tf 9.12 TL ET
+BT 1 0 0 1 46 347.8898 Tm (FULL BUILD) Tj T* ET
+.956863 .937255 .905882 rg
+/gRLs1 gs
+BT /F2 17 Tf 20.4 TL ET
+BT 1 0 0 1 46 323.8898 Tm (Flagship) Tj T* ET
+.768627 .376471 .164706 rg
+BT /F2 15 Tf 18 TL ET
+BT 1 0 0 1 46 300.8898 Tm (NGN 1m+) Tj T* ET
+1 1 1 rg
+/gRLs2 gs
+BT /F1 8.6 Tf 10.32 TL ET
+BT 1 0 0 1 46 283.8898 Tm (From \267 50% deposit to start) Tj T* ET
+1 1 1 rg
+/gRLs0 gs
+BT 1 0 0 1 46 268.8898 Tm (Delivered in 3\2264 weeks) Tj T* ET
+.768627 .376471 .164706 rg
+/gRLs1 gs
+n
+233.6 346.8898 m
+233.6 347.7734 232.8837 348.4898 232 348.4898 c
+231.1163 348.4898 230.4 347.7734 230.4 346.8898 c
+230.4 346.0061 231.1163 345.2898 232 345.2898 c
+232.8837 345.2898 233.6 346.0061 233.6 346.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 343.8898 Tm (Full brand identity plus website) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 328.8898 m
+233.6 329.7734 232.8837 330.4898 232 330.4898 c
+231.1163 330.4898 230.4 329.7734 230.4 328.8898 c
+230.4 328.0061 231.1163 327.2898 232 327.2898 c
+232.8837 327.2898 233.6 328.0061 233.6 328.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 325.8898 Tm (E-commerce or booking system) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 310.8898 m
+233.6 311.7734 232.8837 312.4898 232 312.4898 c
+231.1163 312.4898 230.4 311.7734 230.4 310.8898 c
+230.4 310.0061 231.1163 309.2898 232 309.2898 c
+232.8837 309.2898 233.6 310.0061 233.6 310.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 307.8898 Tm (Payment gateway integration) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 292.8898 m
+233.6 293.7734 232.8837 294.4898 232 294.4898 c
+231.1163 294.4898 230.4 293.7734 230.4 292.8898 c
+230.4 292.0061 231.1163 291.2898 232 291.2898 c
+232.8837 291.2898 233.6 292.0061 233.6 292.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 289.8898 Tm (Custom animation and interaction) Tj T* ET
+.768627 .376471 .164706 rg
+n
+233.6 274.8898 m
+233.6 275.7734 232.8837 276.4898 232 276.4898 c
+231.1163 276.4898 230.4 275.7734 230.4 274.8898 c
+230.4 274.0061 231.1163 273.2898 232 273.2898 c
+232.8837 273.2898 233.6 274.0061 233.6 274.8898 c
+f*
+.956863 .937255 .905882 rg
+BT /F1 9.4 Tf 11.28 TL ET
+BT 1 0 0 1 242 271.8898 Tm (3 months post-launch support) Tj T* ET
+1 1 1 RG
+.7 w
+n 46 248 m 549.2756 248 l S
+.768627 .376471 .164706 rg
+BT /F2 8 Tf 9.6 TL ET
+BT 1 0 0 1 46 230 Tm (HOW IT WORKS) Tj T* ET
+1 1 1 rg
+/gRLs2 gs
+BT /F1 9 Tf 10.8 TL ET
+BT 1 0 0 1 46 212 Tm (50% deposit to start  \267  brief and scope confirmed in writing  \267  design signed off) Tj T* ET
+BT 1 0 0 1 46 198 Tm (before the build  \267  balance on delivery. Two revision rounds on the design direction.) Tj T* ET
+.956863 .937255 .905882 rg
+/gRLs1 gs
+BT /F2 9 Tf 10.8 TL ET
+BT 1 0 0 1 46 172 Tm (Not sure which one?) Tj T* ET
+BT /F1 9 Tf 10.8 TL ET
+1 1 1 rg
+/gRLs2 gs
+BT 1 0 0 1 138 172 Tm (Tell me the goal and I will tell you the honest minimum.) Tj T* ET
+1 1 1 RG
+.7 w
+n 46 118 m 549.2756 118 l S
+.956863 .937255 .905882 rg
+/gRLs1 gs
+BT /F2 8 Tf 9.6 TL ET
+BT 1 0 0 1 46 98 Tm (START A PROJECT) Tj T* ET
+BT /F1 8.8 Tf 10.56 TL ET
+1 1 1 rg
+/gRLs2 gs
+BT 1 0 0 1 46 82 Tm (WhatsApp 0806 936 0887   \267   toluwadesigns@gmail.com) Tj T* ET
+BT 1 0 0 1 46 68 Tm (twase-dev.github.io   \267   Ikosi, Ketu, Lagos   \267   Mon\226Fri, 9:00\22618:00 WAT) Tj T* ET
+1 1 1 rg
+/gRLs0 gs
+BT /F1 7 Tf 8.4 TL ET
+BT 1 0 0 1 448.1186 32 Tm (ToluwaDesigns \267 2026 packages) Tj T* ET
+ 
+
+endstream
 endobj
 xref
-0 9
+0 6
 0000000000 65535 f 
-0000000061 00000 n 
-0000000102 00000 n 
-0000000209 00000 n 
-0000000321 00000 n 
-0000000623 00000 n 
-0000000691 00000 n 
-0000001039 00000 n 
-0000001098 00000 n 
+0000000015 00000 n 
+0000000100 00000 n 
+0000000159 00000 n 
+0000000208 00000 n 
+0000000643 00000 n 
 trailer
 <<
-/ID 
-[<084de90fdf2f32d0750fe8a5388db0dd><084de90fdf2f32d0750fe8a5388db0dd>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 6 0 R
-/Root 5 0 R
-/Size 9
+/Size 6
+/Root 3 0 R
+/Info 1 0 R
 >>
 startxref
-3848
+9826
 %%EOF
